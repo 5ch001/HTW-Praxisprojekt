@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8834018599429305111}
   - component: {fileID: 8721906859608264123}
   - component: {fileID: 4409411773441051103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BarLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
