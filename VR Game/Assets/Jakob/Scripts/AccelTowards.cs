@@ -17,7 +17,7 @@ public class AccelTowards : MonoBehaviour
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f)
-        ).normalized * 0.5f;
+        ).normalized * 0.1f;
     }
 
     void FixedUpdate()
