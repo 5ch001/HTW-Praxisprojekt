@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c7b3186e154625f4f95d11093c131a4c
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246980
+  packageName: Space Station 2 - Low Poly Asset Pack by ithappy
+  packageVersion: 1.2
+  assetPath: Assets/Space_Station_2/Shaders/Glass_URP.shader
+  uploadId: 683008

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 1fafe1fd001c07242abe2538b57056ea
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246980
+  packageName: Space Station 2 - Low Poly Asset Pack by ithappy
+  packageVersion: 1.2
+  assetPath: Assets/Space_Station_2/Shaders/SimpleWater_URP.shader
+  uploadId: 683008

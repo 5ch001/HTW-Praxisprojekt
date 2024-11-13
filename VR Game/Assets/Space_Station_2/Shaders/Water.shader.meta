@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 65acc524ed632c5499dce26d2b00b8cc
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246980
+  packageName: Space Station 2 - Low Poly Asset Pack by ithappy
+  packageVersion: 1.2
+  assetPath: Assets/Space_Station_2/Shaders/Water.shader
+  uploadId: 683008
