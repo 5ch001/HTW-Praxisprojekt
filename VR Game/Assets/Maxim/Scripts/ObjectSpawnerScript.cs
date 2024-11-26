@@ -1,49 +1,71 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class ObjectSpawnerScript : MonoBehaviour
 {
     public GameObject[] ingredients;
     private List<GameObject> spawnedObjects = new List<GameObject>();
-    private float spawnInterval = 2.5f;
+    private float spawnInterval = 2.5f; //alle 2.5 Sekunden spawnt ein Objekt
     private float spawnTimer = 0f;
-    private Vector2 xRange = new Vector2(-0.3f, 0.6f); //based on position of IngredientSpawner
-    private Vector2 yRange = new Vector2(1, 2f); //based on position of IngredientSpawner
-    private float moveSpeed = -5f;
+    private Vector2 xRange = new Vector2(-0.3f, 0.6f); //based on position of ObjectSpawner
+    private Vector2 yRange = new Vector2(1, 2f); //based on position of ObjectSpawner
+    private float moveSpeed = -4f;
     private float rotationSpeed = 0.2f;
+    private float speedIncrease = -0.08f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
+    private float maxSpeed = -12.0f; //Ebenfalls variabel
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer >= spawnInterval)
-        {
-            SpawnObject();
-            spawnTimer = 0f;
-        }
+        HandleSpawning();
+        MoveAndRotateObjects();
+        DeleteObjects();
+    }
 
-        for (int i = 0; i < spawnedObjects.Count; i++)
-        {
-            spawnedObjects[i].transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
-            spawnedObjects[i].transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
+    private void SpawnObject() //called by HandleSpawning()
+    {
+        int randomIndex = Random.Range(0, ingredients.Length);
+        GameObject selectedIngredient = ingredients[randomIndex];
 
-            if (spawnedObjects[i].transform.position.z >= 50f)
+        float randomX = Random.Range(xRange.x, xRange.y);
+        float randomY = Random.Range(yRange.x, yRange.y);
+        if(selectedIngredient.name == "Asteroid 4") randomY = 1; //makes sure that they spawn on the same height as you
+        Vector3 spawnPosition = new Vector3(randomX, randomY, transform.position.z);
+
+        GameObject spawnedObject = Instantiate(selectedIngredient, spawnPosition, Quaternion.identity);
+        spawnedObject.transform.rotation = Random.rotation;
+        spawnedObjects.Add(spawnedObject);
+    }
+
+    private void DeleteObjects()
+    {
+        for (int i = spawnedObjects.Count - 1; i >= 0; i--)
+        {
+            if (spawnedObjects[i] != null && spawnedObjects[i].transform.position.z < -50f)
             {
                 Destroy(spawnedObjects[i]);
                 spawnedObjects.RemoveAt(i);
             }
         }
     }
-
-    void SpawnObject()
+    private void HandleSpawning()
     {
-        int randomIndex = Random.Range(0, ingredients.Length);
-
-        float randomX = Random.Range(xRange.x, xRange.y);
-        float randomY = Random.Range(yRange.x, yRange.y);
-        Vector3 spawnPosition = new Vector3(randomX, randomY, transform.position.z);
-
-        GameObject spawnedObject = Instantiate(ingredients[randomIndex], spawnPosition, Quaternion.identity);
-        spawnedObject.transform.rotation = Random.rotation;
-        spawnedObjects.Add(spawnedObject);
+        //TODO: SpawnTimer soll sich reduzieren nach Zeit.
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer >= spawnInterval)
+        {
+            SpawnObject();
+            spawnTimer = 0f;
+            if (moveSpeed >= maxSpeed) moveSpeed += speedIncrease * Time.deltaTime; //>, da minus
+        }
+    }
+    private void MoveAndRotateObjects()
+    {
+        foreach (GameObject obj in spawnedObjects)
+        {
+            //Debug.Log(moveSpeed);
+            obj.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+            obj.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
+        }
     }
 }
