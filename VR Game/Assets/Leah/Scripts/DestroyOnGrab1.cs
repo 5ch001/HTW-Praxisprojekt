@@ -5,7 +5,7 @@ public class DestroyOnGrab : MonoBehaviour
 {
     [Header("Explosion Settings")]
     public GameObject explosionEffectPrefab; // Drag your explosion prefab here
-    public float delayBeforeDisappearance = 1f; // Time the object stays visible before disappearing
+    public float delayBeforeDisappearance = 1f; // Time before the object disappears
 
     private bool isTriggered = false;
 
@@ -25,14 +25,30 @@ public class DestroyOnGrab : MonoBehaviour
         {
             isTriggered = true;
 
-            // Schedule the disappearance and explosion using the delay set in the inspector
+            // Save the object's name and log the list
+            SaveObjectData();
+
+            // Schedule the disappearance and explosion
             Invoke(nameof(TriggerExplosion), delayBeforeDisappearance);
         }
     }
 
+    void SaveObjectData()
+    {
+        // Log the name of the current object being destroyed
+        Debug.Log($"Object grabbed: {gameObject.name}");
+
+        // Save the object's name to the GameManager's list of destroyed objects
+        GameManager.destroyedObjectNames.Add(gameObject.name);
+
+        // Log the entire list of destroyed objects in one line
+        string objectsList = string.Join(", ", GameManager.destroyedObjectNames);
+        Debug.Log("Current List of Destroyed Objects: " + objectsList);
+    }
+
     void TriggerExplosion()
     {
-        // Trigger the particle effect at the object's position
+        // Instantiate the particle effect
         if (explosionEffectPrefab != null)
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
