@@ -314,8 +314,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 441186234}
         m_TargetAssemblyTypeName: DestroyOnGrab, Assembly-CSharp
-        m_MethodName: DestroyObjects
-        m_Mode: 1
+        m_MethodName: HandleGrab
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -615,6 +615,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3848636029621322780, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_PhysicsLayerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848636029621322780, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_PhysicsTriggerInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670886879457258502, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_PhysicsTriggerInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670886879457258502, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_DebugVisualizationsEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6568622088034470885, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: m_EnableFarCasting
       value: 0
@@ -624,14 +640,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8510181940666128500, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
-      propertyPath: m_StartingHoverFilters.Array.size
+      propertyPath: m_SelectActionTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510181940666128500, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_StartingHoverFilters.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8510181940666128500, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: 'm_StartingHoverFilters.Array.data[0]'
       value: 
       objectReference: {fileID: 936999237}
-    m_RemovedComponents: []
+    - target: {fileID: 8550529377098932971, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1722772538918597730, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -801,7 +826,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 995450393}
         m_TargetAssemblyTypeName: DestroyOnGrab, Assembly-CSharp
-        m_MethodName: DestroyObjects
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -833,7 +858,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_StartingHoverFilters:
-  - {fileID: 0}
+  - {fileID: 936999237}
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
@@ -1134,7 +1159,8 @@ MonoBehaviour:
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
-  m_StartingHoverFilters: []
+  m_StartingHoverFilters:
+  - {fileID: 936999237}
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}

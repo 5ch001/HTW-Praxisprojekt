@@ -16,16 +16,21 @@ public class DestroyOnGrab : MonoBehaviour
         if (grabInteractable != null)
         {
             grabInteractable.selectEntered.AddListener(HandleGrab);
+            Debug.Log("Listener added to XRGrabInteractable selectEntered event.");
+        }
+        else
+        {
+            Debug.LogError("XRGrabInteractable component is missing!");
         }
     }
 
-    void HandleGrab(SelectEnterEventArgs args)
+    public void HandleGrab(SelectEnterEventArgs args)
     {
         if (!isTriggered)
         {
             isTriggered = true;
 
-            // Save the object's name and log the list
+            // Save the object's data
             SaveObjectData();
 
             // Schedule the disappearance and explosion
@@ -39,6 +44,10 @@ public class DestroyOnGrab : MonoBehaviour
         Debug.Log($"Object grabbed: {gameObject.name}");
 
         // Save the object's name to the GameManager's list of destroyed objects
+        if (GameManager.destroyedObjectNames == null)
+        {
+            GameManager.destroyedObjectNames = new System.Collections.Generic.List<string>();
+        }
         GameManager.destroyedObjectNames.Add(gameObject.name);
 
         // Log the entire list of destroyed objects in one line
