@@ -623,6 +623,14 @@ PrefabInstance:
       propertyPath: m_EnableFarCasting
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8510181940666128500, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_StartingHoverFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510181940666128500, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: 'm_StartingHoverFilters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 936999237}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
