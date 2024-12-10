@@ -1744,6 +1744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin (XR Rig)
       objectReference: {fileID: 0}
+    - target: {fileID: 2289058060689522534, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2420870280499948636, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1784,11 +1788,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3848636029621322780, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_PhysicsLayerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848636029621322780, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_PhysicsTriggerInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617884907962463931, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_EnableDebugLines
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617884907962463931, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_MaxAdditionalVelocityScalar
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4819293105443514184, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5354245115036798531, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670886879457258502, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_PhysicsTriggerInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670886879457258502, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_DebugVisualizationsEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282337660419657978, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
