@@ -261,8 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8380c858fa043e45998f570bb93d4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 6421815567332028968, guid: fd2a47f2c11972343bf61f2862f8e745, type: 3}
-  delayBeforeDisappearance: 1
 --- !u!114 &441186235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +419,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -631,6 +629,10 @@ PrefabInstance:
       propertyPath: 'm_StartingHoverFilters.Array.data[0]'
       value: 
       objectReference: {fileID: 936999237}
+    - target: {fileID: 8550529377098932971, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1014,8 +1016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8380c858fa043e45998f570bb93d4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 6421815567332028968, guid: fd2a47f2c11972343bf61f2862f8e745, type: 3}
-  delayBeforeDisappearance: 1
 --- !u!1 &1652485786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,8 +1050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8380c858fa043e45998f570bb93d4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 6421815567332028968, guid: fd2a47f2c11972343bf61f2862f8e745, type: 3}
-  delayBeforeDisappearance: 1
 --- !u!114 &1652485788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,7 +1132,8 @@ MonoBehaviour:
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
-  m_StartingHoverFilters: []
+  m_StartingHoverFilters:
+  - {fileID: 936999237}
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}

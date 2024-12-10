@@ -20,6 +20,8 @@ public class ObjectSpawnerScript : MonoBehaviour
     private int burstObjects;
     private int burstCount = 0;
     private bool inBurst = false;
+
+
     void Update()
     {
         HandleSpawning();
@@ -81,16 +83,21 @@ public class ObjectSpawnerScript : MonoBehaviour
         }
     }
     private void MoveAndRotateObjects()
+{
+    for (int i = spawnedObjects.Count - 1; i >= 0; i--)
     {
-        //TODO: Offset für Velocity, damit die Objekte minimal unterschiedliche Geschwindigkeiten haben, welche im Clutter spawnen?
-        foreach (GameObject obj in spawnedObjects)
+        GameObject obj = spawnedObjects[i];
+        if (obj == null)
         {
-            //Debug.Log("moveSpeed: " + moveSpeed);
-            //Debug.Log("Spawn Interval: " + spawnInterval);
-            obj.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
-            obj.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
+            spawnedObjects.RemoveAt(i); // Entferne zerstörte Objekte
+            continue; // Überspringe die Schleife für dieses Objekt
         }
+
+        // Bewegung und Rotation nur für gültige Objekte
+        obj.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+        obj.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
     }
+}
 
     private GameObject GetWeightedRandomIngredient()
     {
