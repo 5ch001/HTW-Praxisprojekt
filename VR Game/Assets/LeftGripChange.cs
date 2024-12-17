@@ -9,13 +9,11 @@ public class LeftGripChange : MonoBehaviour
     public InputActionReference triggerInputActionReference;
     private float gripValue;
     private float triggerValue;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
      myAnimator = GetComponent<Animator>();   
     }
 
-    // Update is called once per frame
     void Update()
     {
         AnimateGrip();

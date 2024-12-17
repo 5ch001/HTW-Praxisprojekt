@@ -67,9 +67,6 @@ PrefabInstance:
       addedObject: {fileID: 3159982032667086760}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1852525284243552228}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7687690997773822933}
   m_SourcePrefab: {fileID: 100100000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
 --- !u!1 &86671826246578318 stripped
@@ -250,21 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca615c42ac463ef4ba14e95ca149565e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 0}
-  delayBeforeDisappearance: 1
---- !u!114 &-1852525284243552228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86671826246578318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16ea49e9ef471e4ead54f7a42bbf58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxInteractDistance: 0.1
+  explosionEffectPrefab: {fileID: 6421815567332028968, guid: fd2a47f2c11972343bf61f2862f8e745, type: 3}
 --- !u!65 &7687690997773822933
 BoxCollider:
   m_ObjectHideFlags: 0

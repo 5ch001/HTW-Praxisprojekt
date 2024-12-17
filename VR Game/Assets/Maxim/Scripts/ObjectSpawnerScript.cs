@@ -36,7 +36,9 @@ public class ObjectSpawnerScript : MonoBehaviour
         float randomX = Random.Range(xRange.x, xRange.y);
         float randomY = Random.Range(yRange.x, yRange.y);
         float randomZ = Random.Range(zRange.x, zRange.y);
-        if (selectedIngredient.name == "Asteroid 4") randomY = Random.Range(0, 2) == 0 ? 1f : 1.29f; //makes sure that they spawn on the same height or above to duck down
+        if (selectedIngredient.name == "Asteroid 4") randomY = Random.Range(0, 2) == 0 ? 1.3f : 1.6f; //makes sure that they spawn on the same height or above to duck down
+        //1.3 ist Augenhöhe und 1.6 ist etwas über, damit man ducken soll
+        //Problem könnte sein, dass diese Werte nicht für jeden geeignet sind, da es abhängig ist von der Größe des Spielers.
         Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
 
         GameObject spawnedObject = Instantiate(selectedIngredient, spawnPosition, Quaternion.identity);
@@ -83,21 +85,19 @@ public class ObjectSpawnerScript : MonoBehaviour
         }
     }
     private void MoveAndRotateObjects()
-{
-    for (int i = spawnedObjects.Count - 1; i >= 0; i--)
     {
-        GameObject obj = spawnedObjects[i];
-        if (obj == null)
+        for (int i = spawnedObjects.Count - 1; i >= 0; i--)
         {
-            spawnedObjects.RemoveAt(i); // Entferne zerstörte Objekte
-            continue; // Überspringe die Schleife für dieses Objekt
+            GameObject obj = spawnedObjects[i];
+            if (obj == null)
+            {
+                spawnedObjects.RemoveAt(i);
+                continue;
+            }
+            obj.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+            obj.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
         }
-
-        // Bewegung und Rotation nur für gültige Objekte
-        obj.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
-        obj.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
     }
-}
 
     private GameObject GetWeightedRandomIngredient()
     {

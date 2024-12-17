@@ -4,9 +4,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class DestroyOnGrab : MonoBehaviour
 {
     [Header("Explosion Settings")]
-    public GameObject explosionEffectPrefab; // Drag your explosion prefab here
-    public float delayBeforeDisappearance = 1f; // Time before the object disappears
-
+    public GameObject explosionEffectPrefab;
+    private float delayBeforeDisappearance = 0.3f;
     private bool isTriggered = false;
 
     void Start()
@@ -30,7 +29,6 @@ public class DestroyOnGrab : MonoBehaviour
         {
             isTriggered = true;
 
-            // Save the object's data
             SaveObjectData();
 
             // Schedule the disappearance and explosion
@@ -40,7 +38,6 @@ public class DestroyOnGrab : MonoBehaviour
 
     void SaveObjectData()
     {
-        // Log the name of the current object being destroyed
         Debug.Log($"Object grabbed: {gameObject.name}");
 
         // Save the object's name to the GameManager's list of destroyed objects
@@ -57,13 +54,11 @@ public class DestroyOnGrab : MonoBehaviour
 
     void TriggerExplosion()
     {
-        // Instantiate the particle effect
         if (explosionEffectPrefab != null)
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         }
 
-        // Destroy the object
         Destroy(gameObject);
     }
 }

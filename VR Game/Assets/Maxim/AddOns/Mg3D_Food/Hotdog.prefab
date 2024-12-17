@@ -247,8 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca615c42ac463ef4ba14e95ca149565e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 0}
-  delayBeforeDisappearance: 1
+  explosionEffectPrefab: {fileID: 6421815567332028968, guid: fd2a47f2c11972343bf61f2862f8e745, type: 3}
 --- !u!65 &4346769300160544291
 BoxCollider:
   m_ObjectHideFlags: 0
