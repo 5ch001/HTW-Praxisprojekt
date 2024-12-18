@@ -16,8 +16,8 @@ public class Rotatator : MonoBehaviour {
 		}
 	}
 	
-	[SerializeField] float maxSpeed;
-	[SerializeField] float minSpeed;
+	private float maxSpeed = 30;
+	private float minSpeed = 10;
 
 	// Use this for initialization
 	void Start () 
