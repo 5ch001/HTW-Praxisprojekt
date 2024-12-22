@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "cube")
+        // Check if the collided object is named "Asteroid 4"
+        if (collision.gameObject.name == "Asteroid 4")
         {
             HandleCollision();
         }
