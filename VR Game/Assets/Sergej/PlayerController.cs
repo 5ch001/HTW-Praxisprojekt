@@ -24,14 +24,16 @@ public class PlayerController : MonoBehaviour
         ResetScreenTransparency();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        // Check if the collided object is named "Asteroid 4"
-        if (collision.gameObject.name == "Asteroid 4")
+        // Check if the collided object has the tag "asteroid"
+        if (other.gameObject.CompareTag("asteroid"))
         {
+            Debug.Log("Trigger hit with an asteroid!");
             HandleCollision();
         }
     }
+
 
     private void HandleCollision()
     {

@@ -43,6 +43,13 @@ public class ObjectSpawnerScript : MonoBehaviour
 
         GameObject spawnedObject = Instantiate(selectedIngredient, spawnPosition, Quaternion.identity);
         spawnedObject.transform.rotation = Random.rotation;
+
+        // Assign the "asteroid" tag if the object is "Asteroid 4"
+        if (selectedIngredient.name == "Asteroid 4")
+        {
+            spawnedObject.tag = "asteroid";
+        }
+
         spawnedObjects.Add(spawnedObject);
     }
 
