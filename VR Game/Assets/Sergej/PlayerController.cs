@@ -6,13 +6,10 @@ using UnityEngine.XR;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject m_GotHitScreen; // The UI screen that shows the red overlay
-    private int maxLives = 6; // Total lives the player starts with
-    private int currentLives; // Current lives the player has
-    private float transparencyIncrement = 0.12f; // 8% increment per hit
+    public Image healthBar; // Reference to the UI health bar
+    public float healthAmount = 100f; // Player's current health
 
     private bool isDead = false; // Tracks if the player has lost all lives
-
     private bool loadKitchen = false; // Tracks if the kitchen scene should be loaded
     private float buttonHoldTime = 0f; // Tracks how long the button is held down
     private float requiredHoldTime = 3f; // Time required to trigger the action
@@ -20,65 +17,38 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentLives = maxLives; // Initialize lives to max
-        ResetScreenTransparency();
+        healthAmount = 100f; // Initialize health to max
+        ResetHealthBar();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         // Check if the collided object has the tag "asteroid"
-        if (other.gameObject.CompareTag("asteroid"))
+        if (other.gameObject.CompareTag("asteroid") && !isDead)
         {
             Debug.Log("Trigger hit with an asteroid!");
-            HandleCollision();
+            TakeDamage(20f); // Reduce health by a fixed amount
         }
     }
 
-
-    private void HandleCollision()
+    public void TakeDamage(float damage)
     {
-        if (isDead) return; // If the player is already dead, do nothing
+        healthAmount -= damage;
+        healthAmount = Mathf.Clamp(healthAmount, 0f, 100f); // Ensure health stays between 0 and 100
+        healthBar.fillAmount = healthAmount / 100f;
 
-        currentLives--; // Reduce one life
-
-        if (currentLives > 0)
-        {
-            UpdateScreenTransparency();
-        }
-
-        if (currentLives <= 0)
+        if (healthAmount <= 0f)
         {
             isDead = true;
-            SetScreenFullyRed();
             Debug.Log("Player is dead!");
-            // Additional logic for player death (e.g., Game Over) can go here
-        }
-        else
-        {
-            Debug.Log($"Player hit! Lives remaining: {currentLives}");
+            // Additional logic for player death (e.g., game over screen) can go here
         }
     }
 
-    private void UpdateScreenTransparency()
+    private void ResetHealthBar()
     {
-        float alpha = Mathf.Min(transparencyIncrement * (maxLives - currentLives), 0.6f); // Cap transparency at 40%
-        var color = m_GotHitScreen.GetComponent<Image>().color;
-        color.a = Mathf.Clamp(alpha, 0f, 0.6f); // Ensure alpha stays between 0 and 0.4
-        m_GotHitScreen.GetComponent<Image>().color = color;
-    }
-
-    private void SetScreenFullyRed()
-    {
-        var color = m_GotHitScreen.GetComponent<Image>().color;
-        color.a = 1f; // Set transparency to 100%
-        m_GotHitScreen.GetComponent<Image>().color = color;
-    }
-
-    private void ResetScreenTransparency()
-    {
-        var color = m_GotHitScreen.GetComponent<Image>().color;
-        color.a = 0f; // Start fully transparent
-        m_GotHitScreen.GetComponent<Image>().color = color;
+        healthAmount = 100f; // Reset health to full
+        healthBar.fillAmount = 1f; // Set health bar to full
     }
 
     // Update is called once per frame
@@ -110,7 +80,7 @@ public class PlayerController : MonoBehaviour
         // Optional debug output
         if (isDead)
         {
-            Debug.Log("Game Over: The screen is now fully red.");
+            Debug.Log("Game Over.");
         }
     }
 }
