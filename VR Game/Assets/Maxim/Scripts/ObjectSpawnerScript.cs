@@ -9,7 +9,7 @@ public class ObjectSpawnerScript : MonoBehaviour
     private float spawnTimer = 0f;
     private Vector2 xRange = new Vector2(-0.3f, 0.6f); //based on position of ObjectSpawner
     private Vector2 yRange = new Vector2(1f, 2f); //based on position of ObjectSpawner
-    private Vector2 zRange = new Vector2(40f, 36f); //based on position of (0, 0, 0) (ObjectSpawner ist bei z = 40)
+    private Vector2 zRange = new Vector2(-154.5f, 36f); //based on position of (0, 0, 0) (ObjectSpawner ist bei z = 40)
     private float moveSpeed = -4f;
     private float rotationSpeed = 0.2f;
     private float speedIncrease = -0.015f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
