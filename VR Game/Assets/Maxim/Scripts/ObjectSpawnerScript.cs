@@ -9,8 +9,8 @@ public class ObjectSpawnerScript : MonoBehaviour
     private float spawnTimer = 0f;
     private Vector2 xRange = new Vector2(-0.3f, 0.6f); //based on position of ObjectSpawner
     private Vector2 yRange = new Vector2(1f, 2f); //based on position of ObjectSpawner
-    private Vector2 zRange = new Vector2(40f, 36f); //based on position of (0, 0, 0) (ObjectSpawner ist bei z = 40)
-    private float moveSpeed = -4f;
+    private Vector2 zRange = new Vector2(-40f, -36f); //based on position of (0, 0, 0) (ObjectSpawner ist bei z = 40)
+    private float moveSpeed = -3f;
     private float rotationSpeed = 0.2f;
     private float speedIncrease = -0.015f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
     private float maxSpeed = -12.0f; //Ebenfalls variabel
@@ -50,7 +50,7 @@ public class ObjectSpawnerScript : MonoBehaviour
     {
         for (int i = spawnedObjects.Count - 1; i >= 0; i--)
         {
-            if (spawnedObjects[i] != null && spawnedObjects[i].transform.position.z < -50f)
+            if (spawnedObjects[i] != null && spawnedObjects[i].transform.position.z > 50f)
             {
                 Destroy(spawnedObjects[i]);
                 spawnedObjects.RemoveAt(i);
@@ -94,7 +94,7 @@ public class ObjectSpawnerScript : MonoBehaviour
                 spawnedObjects.RemoveAt(i);
                 continue;
             }
-            obj.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+            obj.transform.Translate((Vector3.forward * -1) * moveSpeed * Time.deltaTime, Space.World);
             obj.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
         }
     }
