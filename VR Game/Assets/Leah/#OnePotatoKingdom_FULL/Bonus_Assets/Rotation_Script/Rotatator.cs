@@ -16,8 +16,8 @@ public class Rotatator : MonoBehaviour {
 		}
 	}
 	
-	private float maxSpeed = 30;
-	private float minSpeed = 10;
+	private float maxSpeed = 5;
+	private float minSpeed = 1;
 
 	// Use this for initialization
 	void Start () 
