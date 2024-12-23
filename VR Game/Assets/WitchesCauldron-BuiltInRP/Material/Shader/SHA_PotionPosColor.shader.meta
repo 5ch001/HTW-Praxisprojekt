@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b7a811936d63335478d83f78089fe70f
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Normal_Tex: {fileID: 2800000, guid: d7466e4759fa18a4f8f7d92c62408d52, type: 3}
+  - _Color_Tex: {fileID: 2800000, guid: cc7bea40577a0ab4d90f3d64e013455f, type: 3}
+  - _Mask_Tex: {fileID: 2800000, guid: 1607212386e63bf459a6e602147a3729, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186123
+  packageName: The Witch's Cauldron
+  packageVersion: 1.0.1
+  assetPath: Assets/WitchesCauldron-BuiltInRP/Material/Shader/SHA_PotionPosColor.shader
+  uploadId: 550878

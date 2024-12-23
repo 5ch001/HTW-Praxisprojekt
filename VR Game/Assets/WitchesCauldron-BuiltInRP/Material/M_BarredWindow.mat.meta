@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7c5f40e99ba18ec4391d0c987975c783
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186123
+  packageName: The Witch's Cauldron
+  packageVersion: 1.0.1
+  assetPath: Assets/WitchesCauldron-BuiltInRP/Material/M_BarredWindow.mat
+  uploadId: 550878

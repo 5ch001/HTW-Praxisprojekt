@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4f922b77977301646885b9f9ebc7bb27
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _NormalTex: {fileID: 2800000, guid: fbd14f0c24e9f664392d7a0d1c1464e6, type: 3}
+  - _ColorTex: {fileID: 2800000, guid: 756104ccb135f4146b689262aaac6ba5, type: 3}
+  - _MaskTex: {fileID: 2800000, guid: 866d0c7b4ee920d45926c3ae7977cfe0, type: 3}
+  - _CandleHeight: {fileID: 2800000, guid: 510453eefe9e30542bb5c8666668c729, type: 3}
+  - _NoiseTexture: {fileID: 2800000, guid: db9e86714a9eda04dbb070b089662f41, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186123
+  packageName: The Witch's Cauldron
+  packageVersion: 1.0.1
+  assetPath: Assets/WitchesCauldron-BuiltInRP/Material/Shader/SHA_CandleTransmission.shader
+  uploadId: 550878

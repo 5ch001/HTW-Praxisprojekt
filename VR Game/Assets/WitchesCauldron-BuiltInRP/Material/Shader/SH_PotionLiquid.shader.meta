@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 72ff81b181b075a43bf647f83054d56a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186123
+  packageName: The Witch's Cauldron
+  packageVersion: 1.0.1
+  assetPath: Assets/WitchesCauldron-BuiltInRP/Material/Shader/SH_PotionLiquid.shader
+  uploadId: 550878
