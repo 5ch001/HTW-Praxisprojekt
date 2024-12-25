@@ -217,6 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1 &10089684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!114 &331543192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,6 +1142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1 &340337156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1497,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1001 &451786850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1583,6 +1599,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1001 &480895776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1673,6 +1693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1001 &529012109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2099,6 +2123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1001 &752150183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2185,6 +2213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!4 &790890483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8153149178252571566, guid: 453ca5d002c82bc4bac434a56152e14a, type: 3}
@@ -2397,6 +2429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1 &943485699
 GameObject:
   m_ObjectHideFlags: 0
@@ -7359,6 +7395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1001 &1092752507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12326,15 +12366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459499098806963894, guid: f91e9915815d0ab40b027481a93b12f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.34
+      value: 15.72
       objectReference: {fileID: 0}
     - target: {fileID: 4459499098806963894, guid: f91e9915815d0ab40b027481a93b12f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4459499098806963894, guid: f91e9915815d0ab40b027481a93b12f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.39
+      value: -7.25
       objectReference: {fileID: 0}
     - target: {fileID: 4459499098806963894, guid: f91e9915815d0ab40b027481a93b12f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12394,6 +12434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1001 &1235613036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12480,6 +12524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1 &1289949600
 GameObject:
   m_ObjectHideFlags: 0
@@ -12674,6 +12722,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!4 &1459880130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 565253279165712428, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
@@ -17824,15 +17876,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9132147168263677320, guid: 19835273963b43d46828cf3e32897744, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.72
+      value: 8.34
       objectReference: {fileID: 0}
     - target: {fileID: 9132147168263677320, guid: 19835273963b43d46828cf3e32897744, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 9132147168263677320, guid: 19835273963b43d46828cf3e32897744, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.25
+      value: 0.39
       objectReference: {fileID: 0}
     - target: {fileID: 9132147168263677320, guid: 19835273963b43d46828cf3e32897744, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17892,6 +17944,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!4 &1888376228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6644859711498162541, guid: 701317f6863d12f43998b9ad879c3a28, type: 3}
@@ -18267,6 +18323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c55ae647f6b94285fe014ae3806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  meshObject: {fileID: 0}
+  rotationSpeed: 0
+  randomize: 0
 --- !u!1 &2129855916
 GameObject:
   m_ObjectHideFlags: 0
