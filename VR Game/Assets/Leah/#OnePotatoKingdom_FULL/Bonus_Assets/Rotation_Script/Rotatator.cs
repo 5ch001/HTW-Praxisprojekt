@@ -5,8 +5,8 @@ using UnityEngine;
 public class Rotatator : MonoBehaviour {
 	[SerializeField] Vector3 rotation;
 	[SerializeField] Transform meshObject = null;
-	[SerializeField] float rotationSpeed = 0;
-	[SerializeField] bool randomize;
+	private float rotationSpeed;
+	private bool randomize = true;
 	
 	public bool Randomize 
 	
