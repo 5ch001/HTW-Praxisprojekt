@@ -284,4 +284,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca615c42ac463ef4ba14e95ca149565e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 0}
+  explosionEffectPrefab: {fileID: 1173937985863283591, guid: ce2adae3f58f4184d9b5592fb40dd4f8, type: 3}
