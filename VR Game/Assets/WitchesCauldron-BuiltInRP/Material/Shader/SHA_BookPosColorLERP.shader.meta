@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 19d96cd03cc1c534cbb9704487420c69
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _NormalTex: {fileID: 2800000, guid: 09fe630dd94fd76488ace500b6fc435a, type: 3}
+  - _ColorTex: {fileID: 2800000, guid: e039ee74cf13a254e9997a8946a1999e, type: 3}
+  - _MaskTex: {fileID: 2800000, guid: 5257b981228337c44870853ae024e5da, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186123
+  packageName: The Witch's Cauldron
+  packageVersion: 1.0.1
+  assetPath: Assets/WitchesCauldron-BuiltInRP/Material/Shader/SHA_BookPosColorLERP.shader
+  uploadId: 550878

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ad5c94d525944ed468b9b14e7e25face
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186123
+  packageName: The Witch's Cauldron
+  packageVersion: 1.0.1
+  assetPath: Assets/WitchesCauldron-BuiltInRP/Material/M_Candle.mat
+  uploadId: 550878
