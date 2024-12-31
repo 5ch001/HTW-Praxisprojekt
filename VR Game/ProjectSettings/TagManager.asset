@@ -8,15 +8,16 @@ TagManager:
   - Enemy
   - Actors
   - asteroid
+  - TrackingObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore Raycast
   - Water
   - UI
-  - 
-  - 
+  - UI
+  - Default
   - 
   - 
   - 
