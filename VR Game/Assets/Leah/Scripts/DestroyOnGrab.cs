@@ -28,6 +28,7 @@ public class DestroyOnGrab : MonoBehaviour
         if (!isTriggered)
         {
             isTriggered = true;
+            SoundManager.Instance.PlayPickupSound();
 
             SaveObjectData();
 
@@ -58,6 +59,8 @@ public class DestroyOnGrab : MonoBehaviour
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         }
+
+        SoundManager.Instance.PlayDestroySound();
 
         Destroy(gameObject);
     }
