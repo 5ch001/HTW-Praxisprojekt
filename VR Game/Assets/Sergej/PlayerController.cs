@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         healthAmount -= damage;
         healthAmount = Mathf.Clamp(healthAmount, 0f, 100f); // Ensure health stays between 0 and 100
         healthBar.fillAmount = healthAmount / 100f;
+        SoundManager.Instance.PlayPainSound();
 
         if (healthAmount <= 0f)
         {

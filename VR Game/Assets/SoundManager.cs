@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip backgroundMusic;
     [SerializeField] private AudioClip destroyIngredient;
+    [SerializeField] private AudioClip[] pain;
 
     // Audio Sources
     private AudioSource _sfxSource; // For sound effects like picking up objects
@@ -46,11 +47,19 @@ public class SoundManager : MonoBehaviour
     {
         _sfxSource.PlayOneShot(destroyIngredient);
     }
-
+    public void PlayPainSound()
+    {
+        if (pain.Length > 0)
+        {
+            int randomIndex = Random.Range(0, pain.Length); // Get a random index
+            _sfxSource.PlayOneShot(pain[randomIndex]); // Play the randomly selected sound
+        }
+    }
     public void StopMusic()
     {
         _musicSource.Stop();
     }
+    
 
     public void PlayMusic()
     {
