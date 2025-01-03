@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         // Optional debug output
         if (isDead)
         {
+            LoadNextLevel();
             Debug.Log("Game Over.");
         }
     }
