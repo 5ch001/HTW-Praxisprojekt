@@ -7,9 +7,11 @@ public class DestroyOnGrab : MonoBehaviour
     public GameObject explosionEffectPrefab;
     private float delayBeforeDisappearance = 0.3f;
     private bool isTriggered = false;
+    public ScoreManager scoreManager;
 
     void Start()
     {
+        scoreManager = FindFirstObjectByType<ScoreManager>();
         // Add the grab listener
         var grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (grabInteractable != null)
@@ -61,6 +63,15 @@ public class DestroyOnGrab : MonoBehaviour
         }
 
         SoundManager.Instance.PlayDestroySound();
+
+        if (scoreManager != null)
+        {
+            scoreManager.AddScore(50f); // arbitrary value
+        }
+        else
+        {
+            Debug.LogWarning("ScoreManager is not assigned.");
+        }
 
         Destroy(gameObject);
     }
