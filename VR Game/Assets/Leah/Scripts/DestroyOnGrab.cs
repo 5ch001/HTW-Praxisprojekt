@@ -8,10 +8,12 @@ public class DestroyOnGrab : MonoBehaviour
     private float delayBeforeDisappearance = 0.3f;
     private bool isTriggered = false;
     public ScoreManager scoreManager;
+    public PlayerController playerController;
 
     void Start()
     {
         scoreManager = FindFirstObjectByType<ScoreManager>();
+        playerController = FindFirstObjectByType<PlayerController>();
         // Add the grab listener
         var grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (grabInteractable != null)
@@ -71,6 +73,11 @@ public class DestroyOnGrab : MonoBehaviour
         else
         {
             Debug.LogWarning("ScoreManager is not assigned.");
+        }
+
+        if (gameObject.name.Contains("HealthPack"))
+        {
+            playerController.SetHealthAmount(playerController.GetHealthAmount() + 20f); // Adjust the health amount as needed
         }
 
         Destroy(gameObject);

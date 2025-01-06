@@ -45,6 +45,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public float GetHealthAmount() //Used in ObjectSpawnerScript.cs
+    {
+        return healthAmount;
+    }
+
+    public void SetHealthAmount(float newHealth) //Used in DestroyOnGrab.cs
+    {
+        healthAmount = newHealth;
+        healthBar.fillAmount = healthAmount / 100f;
+        UpdateSegmentedHealthBar();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Check if the collided object has the tag "asteroid"
