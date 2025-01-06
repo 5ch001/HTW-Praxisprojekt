@@ -4,6 +4,7 @@ using UnityEngine;
 public class ObjectSpawnerScript : MonoBehaviour
 {
     public GameObject[] ingredients;
+    public PlayerController playerController;
     private List<GameObject> spawnedObjects = new List<GameObject>();
     private float spawnInterval = 2.5f; //Eventuell auf 2.3 am Anfang setzen. 2.5 ist aber okay
     private float spawnTimer = 0f;
@@ -21,6 +22,9 @@ public class ObjectSpawnerScript : MonoBehaviour
     private int burstCount = 0;
     private bool inBurst = false;
 
+    void Start() {
+        playerController = FindFirstObjectByType<PlayerController>();
+    }
 
     void Update()
     {
@@ -42,7 +46,15 @@ public class ObjectSpawnerScript : MonoBehaviour
         Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
 
         GameObject spawnedObject = Instantiate(selectedIngredient, spawnPosition, Quaternion.identity);
-        spawnedObject.transform.rotation = Random.rotation;
+        if(spawnedObject.name.Contains("HealthPack")) 
+        {
+            float randomYRotation = Random.Range(0, 360f);
+            spawnedObject.transform.Rotate(0f, randomYRotation, 0f);
+        }
+        else 
+        {
+            spawnedObject.transform.rotation = Random.rotation;
+        }
 
         // Assign the "asteroid" tag if the object is "Asteroid 4"
         if (selectedIngredient.name == "Asteroid 4")
@@ -110,26 +122,50 @@ public class ObjectSpawnerScript : MonoBehaviour
     {
         int asteroidWeight = ingredients.Length; //Damit beim Hinzufügen von mehreren Ingredients die Wahrscheinlichkeit trotzdem fair bleibt
         int otherIngredientWeight = 1;
+        float healthPackWeight = 0.3f; //war davor auf 0.2f. Eventuell noch anpassen
 
-        List<GameObject> weightedIngredients = new List<GameObject>();
-
+        float totalWeight = 0f;
         foreach (GameObject ingredient in ingredients)
         {
             if (ingredient.name.Contains("Asteroid 4"))
             {
-                for (int i = 0; i < asteroidWeight; i++)
-                {
-                    weightedIngredients.Add(ingredient);
-                }
+                totalWeight += asteroidWeight;
+            }
+            else if (ingredient.name.Contains("HealthPack") && playerController.GetHealthAmount() <= 80f)
+            {
+                totalWeight += healthPackWeight;
             }
             else
             {
-                for (int i = 0; i < otherIngredientWeight; i++)
-                {
-                    weightedIngredients.Add(ingredient);
-                }
+                totalWeight += otherIngredientWeight;
             }
         }
-        return weightedIngredients[Random.Range(0, weightedIngredients.Count)];
+
+        // Get a random value between 0 and totalWeight
+        float randomValue = Random.Range(0f, totalWeight);
+
+        // Select the ingredient based on the random value
+        float cumulativeWeight = 0f;
+        foreach (GameObject ingredient in ingredients)
+        {
+            if (ingredient.name.Contains("Asteroid 4"))
+            {
+                cumulativeWeight += asteroidWeight;
+            }
+            else if (ingredient.name.Contains("HealthPack") && playerController.GetHealthAmount() <= 80f)
+            {
+                cumulativeWeight += healthPackWeight;
+            }
+            else
+            {
+                cumulativeWeight += otherIngredientWeight;
+            }
+
+            if (randomValue < cumulativeWeight)
+            {
+                return ingredient;
+            }
+        }
+        return ingredients[0]; //sollte nie geschehen
     }
 }

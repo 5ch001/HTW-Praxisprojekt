@@ -2065,7 +2065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -473.6, y: 236.6}
+  m_AnchoredPosition: {x: -349, y: 153}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561183138
@@ -13424,12 +13424,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients:
   - {fileID: 8424566921027176656, guid: 37bf6d09969470347a17e565838c2347, type: 3}
-  - {fileID: 2064982305034707680, guid: 4e9286c830143fc4d864a0757dafc9d6, type: 3}
   - {fileID: 7931222336775539746, guid: c95de82ed95a8dc43af38f0c27414add, type: 3}
   - {fileID: 5254717808624676190, guid: 10f258789baa0bc4789eb9f6e1595203, type: 3}
-  - {fileID: 3723213359512431795, guid: a668783ff31616b4795643344888b847, type: 3}
   - {fileID: 6590027305849916298, guid: ef3d32c54a15c3c40a4bf41d0087e1a6, type: 3}
-  - {fileID: 8909819247406823608, guid: 3a71fb08e5f2baf4299c361310005256, type: 3}
   - {fileID: 2618789358414487738, guid: f5bf96ec66071ea498dfc1708dc867b3, type: 3}
   - {fileID: 5748192680952100006, guid: ead849fd4a249e94d98ced4b142e1041, type: 3}
   - {fileID: 69931605975391070, guid: a8cbc4d5fc7a06040bf2302ca293e662, type: 3}
@@ -13439,6 +13436,8 @@ MonoBehaviour:
   - {fileID: 8019888073485969958, guid: 699c3ac8957b3ee41adf9ce9e2d19024, type: 3}
   - {fileID: 5960841833724595081, guid: 7a0e0caa63e04294cb1b4d3c2717f056, type: 3}
   - {fileID: 9109534376776181812, guid: 42a234c4742a35f428379f713671a686, type: 3}
+  - {fileID: 4458375591403293738, guid: ba0a558a403f3c74bba584393c7dfcfb, type: 3}
+  playerController: {fileID: 0}
 --- !u!4 &1339830875
 Transform:
   m_ObjectHideFlags: 0
@@ -13680,6 +13679,10 @@ PrefabInstance:
     - target: {fileID: 5749441552287667129, guid: ee71d8dfb36a7b048aef24b0bc8f9764, type: 3}
       propertyPath: m_Name
       value: vfx_Hyperdrive_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123853702983496459, guid: ee71d8dfb36a7b048aef24b0bc8f9764, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
