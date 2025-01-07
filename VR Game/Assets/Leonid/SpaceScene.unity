@@ -13824,6 +13824,7 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 8680f996ab928504a98afd926e0c9eb5, type: 3}
   backgroundMusic: {fileID: 8300000, guid: 2509e8cbdc038934c83d96e82a8724fd, type: 3}
   destroyIngredient: {fileID: 8300000, guid: 5501e17180f71fb4ea8113b5bc919de5, type: 3}
+  healSound: {fileID: 8300000, guid: 4e9e590eb178c084e9aff958fca3f346, type: 3}
   pain:
   - {fileID: 8300000, guid: a1a0c051a30d11d4890300f12807c41d, type: 3}
   - {fileID: 8300000, guid: 2bba43289bb4e524f91f050e52f079b9, type: 3}

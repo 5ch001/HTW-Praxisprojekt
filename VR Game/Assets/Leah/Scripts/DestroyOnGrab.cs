@@ -78,6 +78,7 @@ public class DestroyOnGrab : MonoBehaviour
         if (gameObject.name.Contains("HealthPack"))
         {
             playerController.SetHealthAmount(playerController.GetHealthAmount() + 20f); // Adjust the health amount as needed
+            SoundManager.Instance.PlayHealSound();
         }
 
         Destroy(gameObject);

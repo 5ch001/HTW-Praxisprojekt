@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip backgroundMusic;
     [SerializeField] private AudioClip destroyIngredient;
+    [SerializeField] private AudioClip healSound;
     [SerializeField] private AudioClip[] pain;
 
     // Audio Sources
@@ -46,6 +47,11 @@ public class SoundManager : MonoBehaviour
      public void PlayDestroySound()
     {
         _sfxSource.PlayOneShot(destroyIngredient);
+    }
+
+    public void PlayHealSound()
+    {
+        _sfxSource.PlayOneShot(healSound);
     }
     public void PlayPainSound()
     {
