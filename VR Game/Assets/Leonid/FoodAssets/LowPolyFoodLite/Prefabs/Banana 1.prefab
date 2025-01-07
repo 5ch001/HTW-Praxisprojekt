@@ -109,7 +109,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.03776887, y: 0.077711895, z: 0.19450995}
+  m_Size: {x: 0.07, y: 0.1, z: 0.2}
   m_Center: {x: 0.0005739657, y: 0.012489049, z: 0.0012512021}
 --- !u!54 &3573077109982494229
 Rigidbody:
@@ -285,3 +285,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionEffectPrefab: {fileID: 6072342400636264922, guid: 8b8d6a2b04d53ec4bbb619b0f0c5f7c4, type: 3}
+  scoreManager: {fileID: 0}
+  playerController: {fileID: 0}
