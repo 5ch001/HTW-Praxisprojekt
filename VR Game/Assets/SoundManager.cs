@@ -1,50 +1,55 @@
 using UnityEngine;
-using UnityEngine.Audio;
-
 
 public class SoundManager : MonoBehaviour
 {
-   public static SoundManager Instance { get; private set; }
+    public static SoundManager Instance { get; private set; }
 
-    // Serialized Fields to allow drag-and-drop in the Inspector
+    // Sound Effects (SFX) references
     [SerializeField] private AudioClip pickupSound;
-    [SerializeField] private AudioClip backgroundMusic;
     [SerializeField] private AudioClip destroyIngredient;
     [SerializeField] private AudioClip healSound;
-    [SerializeField] private AudioClip[] pain;
+    [SerializeField] private AudioClip[] painSounds;
 
-    // Audio Sources
-    private AudioSource _sfxSource; // For sound effects like picking up objects
-    private AudioSource _musicSource; // For background music
+    // We'll let *another* script tell us which background music to play.
+    // So we don't store one "backgroundMusic" here by default (unless you want a fallback).
 
-    void Awake()
+    private AudioSource _sfxSource;
+    private AudioSource _musicSource;
+
+    private void Awake()
     {
-        // Singleton pattern to ensure only one SoundManager exists
+        // Standard Singleton check
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Keeps SoundManager when changing scenes
 
-        // Add the audio sources to the object
+        // Persist this object across scene loads
+        DontDestroyOnLoad(gameObject);
+
+        // Initialize audio sources
         _sfxSource = gameObject.AddComponent<AudioSource>();
         _musicSource = gameObject.AddComponent<AudioSource>();
 
-        // Set up music source (looping background music)
         _musicSource.loop = true;
-        _musicSource.clip = backgroundMusic;
-         _musicSource.volume = 0.2f;
-        _musicSource.Play();
+        _musicSource.volume = 0.2f;  // Adjust to taste
+
+        // NOTE: We are *not* setting any music clip here.
+        // We'll let SceneMusicChanger or another script call PlayBackgroundMusic(...)
     }
+
+    //==================================================
+    // SFX Methods
+    //==================================================
 
     public void PlayPickupSound()
     {
         _sfxSource.PlayOneShot(pickupSound);
     }
 
-     public void PlayDestroySound()
+    public void PlayDestroySound()
     {
         _sfxSource.PlayOneShot(destroyIngredient);
     }
@@ -53,25 +58,41 @@ public class SoundManager : MonoBehaviour
     {
         _sfxSource.PlayOneShot(healSound);
     }
+
     public void PlayPainSound()
     {
-        if (pain.Length > 0)
+        if (painSounds.Length > 0)
         {
-            int randomIndex = Random.Range(0, pain.Length); // Get a random index
-            _sfxSource.PlayOneShot(pain[randomIndex]); // Play the randomly selected sound
+            int randomIndex = Random.Range(0, painSounds.Length);
+            _sfxSource.PlayOneShot(painSounds[randomIndex]);
         }
     }
-    public void StopMusic()
-    {
-        _musicSource.Stop();
-    }
-    
 
-    public void PlayMusic()
+    //==================================================
+    // Background Music Method
+    //==================================================
+
+    /// <summary>
+    /// Call this from another script to change the background music clip.
+    /// </summary>
+    public void PlayBackgroundMusic(AudioClip clip, float volume = 0.2f)
+{
+    if (clip == null)
     {
-        if (!_musicSource.isPlaying)
-        {
-            _musicSource.Play();
-        }
+        // Stop if no clip
+        _musicSource.Stop();
+        return;
     }
+
+    // Only change if it's a different clip
+    if (_musicSource.clip != clip)
+    {
+        _musicSource.clip = clip;
+        _musicSource.volume = volume;
+        _musicSource.Play();
+    }
+}
+
+    // Optional: if you need to stop music from outside
+    public void StopMusic() => _musicSource.Stop();
 }

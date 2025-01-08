@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync("CookingScene");
         transitionAnim.SetTrigger("Start");
     }
 

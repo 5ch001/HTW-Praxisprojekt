@@ -5131,6 +5131,56 @@ PrefabInstance:
       addedObject: {fileID: 1838007517}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b0d05aef0de7bd47b26cdc0f81d59b8, type: 3}
+--- !u!1 &491491787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491491788}
+  - component: {fileID: 491491789}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491491788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491491787}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.50071996, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491491789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491491787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be8c6c371c7103498cc506def5c59eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 8680f996ab928504a98afd926e0c9eb5, type: 3}
+  destroyIngredient: {fileID: 8300000, guid: 5501e17180f71fb4ea8113b5bc919de5, type: 3}
+  healSound: {fileID: 8300000, guid: 4e9e590eb178c084e9aff958fca3f346, type: 3}
+  painSounds:
+  - {fileID: 8300000, guid: 2bba43289bb4e524f91f050e52f079b9, type: 3}
+  - {fileID: 8300000, guid: a1a0c051a30d11d4890300f12807c41d, type: 3}
 --- !u!1 &492868986
 GameObject:
   m_ObjectHideFlags: 0
@@ -20987,3 +21037,4 @@ SceneRoots:
   - {fileID: 1684532406}
   - {fileID: 1371490127}
   - {fileID: 1499396905}
+  - {fileID: 491491788}
