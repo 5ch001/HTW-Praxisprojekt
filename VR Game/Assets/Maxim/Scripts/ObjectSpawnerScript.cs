@@ -13,7 +13,7 @@ public class ObjectSpawnerScript : MonoBehaviour
     private Vector2 zRange = new Vector2(-40f, -36f); //based on position of (0, 0, 0) (ObjectSpawner ist bei z = 40)
     private float moveSpeed = -3f;
     private float rotationSpeed = 0.2f;
-    private float speedIncrease = -0.015f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
+    private float speedIncrease = -0.025f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
     private float maxSpeed = -12.0f; //Ebenfalls variabel
     private float spawnReductionRate = 0.002f; //Auch variabel
     private float minSpawnInterval = 1.5f; //ditto
@@ -22,7 +22,8 @@ public class ObjectSpawnerScript : MonoBehaviour
     private int burstCount = 0;
     private bool inBurst = false;
 
-    void Start() {
+    void Start()
+    {
         playerController = FindFirstObjectByType<PlayerController>();
     }
 
@@ -45,13 +46,22 @@ public class ObjectSpawnerScript : MonoBehaviour
         //Problem könnte sein, dass diese Werte nicht für jeden geeignet sind, da es abhängig ist von der Größe des Spielers.
         Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
 
-        GameObject spawnedObject = Instantiate(selectedIngredient, spawnPosition, Quaternion.identity);
-        if(spawnedObject.name.Contains("HealthPack")) 
+        GameObject spawnedObject;
+        if (selectedIngredient.name.Contains("HealthPack") && playerController.GetHealthAmount() > 80f)
+        {
+            return; //Don't spawn health packs if the player's health is already high
+        }
+        else
+        {
+            spawnedObject = Instantiate(selectedIngredient, spawnPosition, Quaternion.identity);
+        }
+
+        if (spawnedObject.name.Contains("HealthPack"))
         {
             float randomYRotation = Random.Range(0, 360f);
             spawnedObject.transform.Rotate(0f, randomYRotation, 0f);
         }
-        else 
+        else
         {
             spawnedObject.transform.rotation = Random.rotation;
         }
@@ -122,7 +132,7 @@ public class ObjectSpawnerScript : MonoBehaviour
     {
         int asteroidWeight = ingredients.Length; //Damit beim Hinzufügen von mehreren Ingredients die Wahrscheinlichkeit trotzdem fair bleibt
         int otherIngredientWeight = 1;
-        float healthPackWeight = 0.3f; //war davor auf 0.2f. Eventuell noch anpassen
+        float healthPackWeight = 0.2f;
 
         float totalWeight = 0f;
         foreach (GameObject ingredient in ingredients)

@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578102305790860592}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.487326, y: 0, z: -23.12334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -109,7 +109,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12030208, y: 0.1444535, z: 0.12030206}
+  m_Size: {x: 0.15, y: 0.15, z: 0.15}
   m_Center: {x: -0.000038368627, y: 0.0019869022, z: -0.000013649464}
 --- !u!54 &4599839659607218296
 Rigidbody:
@@ -285,3 +285,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionEffectPrefab: {fileID: 1505061657890609477, guid: c7438558dcd41dc418fc2749ded0bd26, type: 3}
+  scoreManager: {fileID: 0}
+  playerController: {fileID: 0}
