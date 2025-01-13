@@ -8,6 +8,7 @@ public class IngredientCopyGrab : MonoBehaviour
     private XRGrabInteractable grabInteractable; // Grab Interactable für das Objekt
     private GameObject spawnedPrefab; // Referenz auf das aktuelle Kopierte
     private int ingredientCount = 0; // Zähler für eindeutige Namen
+    private bool hasSpawned = false; // Flag, ob bereits ein Prefab gespawnt
 
     void Start()
     {
@@ -18,7 +19,11 @@ public class IngredientCopyGrab : MonoBehaviour
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
-        SpawnIngredientPrefab();
+        if(!hasSpawned)
+        {
+            SpawnIngredientPrefab();
+            hasSpawned = true;
+        }
     }
 
     private void SpawnIngredientPrefab()
@@ -32,9 +37,8 @@ public class IngredientCopyGrab : MonoBehaviour
         // Komponenten deaktivieren, damit es nicht gegrabbt werden kann
         spawnedPrefab.GetComponent<XRGrabInteractable>().enabled = false;
         spawnedPrefab.GetComponent<BoxCollider>().enabled = false;
+        spawnedPrefab.GetComponent<IngredientCopyGrab>().ingredientPrefab = spawnedPrefab;
 
-        // Listener für das Zerstören des aktuellen Objekts hinzufügen
-        spawnedPrefab.GetComponent<IngredientCopyGrab>().ingredientPrefab = ingredientPrefab;
     }
 
     private void OnDestroy()
@@ -49,6 +53,8 @@ public class IngredientCopyGrab : MonoBehaviour
         if (spawnedPrefab != null)
         {
             spawnedPrefab.GetComponent<XRGrabInteractable>().enabled = true;
+            spawnedPrefab.GetComponent<Rigidbody>().useGravity = true;
+            spawnedPrefab.GetComponent<Rigidbody>().isKinematic = false;
             spawnedPrefab.GetComponent<BoxCollider>().enabled = true;
         }
     }
