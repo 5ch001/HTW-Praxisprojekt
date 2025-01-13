@@ -1623,6 +1623,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 63327367662006769, guid: 78fb0551e728b3642b8f6d97328b7480, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1077062972360977792, guid: 78fb0551e728b3642b8f6d97328b7480, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -5354,6 +5358,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6915164686352367273, guid: 1ee1cbb23002bc0428537d52a5d016ed, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6951615190969306495, guid: 1ee1cbb23002bc0428537d52a5d016ed, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6804,6 +6812,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3129285446731862031, guid: 7a0e0caa63e04294cb1b4d3c2717f056, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5960841833724595081, guid: 7a0e0caa63e04294cb1b4d3c2717f056, type: 3}
       propertyPath: m_Name
       value: Tomato 1
@@ -7094,6 +7106,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2112733929013501576, guid: a8cbc4d5fc7a06040bf2302ca293e662, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3808082862853170582, guid: a8cbc4d5fc7a06040bf2302ca293e662, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.543
@@ -7199,6 +7215,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5632016098399372699, guid: 699c3ac8957b3ee41adf9ce9e2d19024, type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632016098399372699, guid: 699c3ac8957b3ee41adf9ce9e2d19024, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5669174524636052706, guid: 699c3ac8957b3ee41adf9ce9e2d19024, type: 3}
@@ -8427,6 +8447,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9195106808234404160, guid: f5bf96ec66071ea498dfc1708dc867b3, type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195106808234404160, guid: f5bf96ec66071ea498dfc1708dc867b3, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11833,6 +11857,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3504502859381460843, guid: 37bf6d09969470347a17e565838c2347, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3648167107637217409, guid: 37bf6d09969470347a17e565838c2347, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -14647,6 +14675,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3636829177831922366, guid: ef3d32c54a15c3c40a4bf41d0087e1a6, type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636829177831922366, guid: ef3d32c54a15c3c40a4bf41d0087e1a6, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4246994363304292304, guid: ef3d32c54a15c3c40a4bf41d0087e1a6, type: 3}
@@ -18019,6 +18051,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3573077109982494229, guid: c95de82ed95a8dc43af38f0c27414add, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6607736687893040567, guid: c95de82ed95a8dc43af38f0c27414add, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -18166,6 +18202,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1379865232606353732, guid: 10f258789baa0bc4789eb9f6e1595203, type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379865232606353732, guid: 10f258789baa0bc4789eb9f6e1595203, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300969241588906401, guid: 10f258789baa0bc4789eb9f6e1595203, type: 3}
@@ -19421,6 +19461,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4599839659607218296, guid: 540eee162c6a81d43bc197a16dccdc27, type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599839659607218296, guid: 540eee162c6a81d43bc197a16dccdc27, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4664813428212797440, guid: 540eee162c6a81d43bc197a16dccdc27, type: 3}

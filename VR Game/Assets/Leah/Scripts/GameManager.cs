@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the quantity of the specified ingredient in the collected ingredients dictionary. This method is for testing purposes only. The dictionary fills up with ingredients as the player collects them in the game.
+    /// Sets the quantity of the specified ingredient in the collected ingredients dictionary. The dictionary fills up with ingredients as the player collects them in the game. However, I am using this method to reduce the quantity of an ingredient when the player uses it in a recipe.
     /// </summary>
     /// <param name="ingredientName">The name of the ingredient, e.g "Pumpkin 1".</param>
     /// <param name="quantity">The quantity to set for the ingredient.</param>
