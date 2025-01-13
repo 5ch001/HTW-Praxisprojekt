@@ -4,13 +4,13 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class IngredientCopyGrab : MonoBehaviour
 {
-    public GameObject ingredientPrefab; // Prefab, das gespawnt wird
-    private XRGrabInteractable grabInteractable; // Grab Interactable für dieses Objekt
-    private bool isGrabbed = false; // Flag to track if the item has been grabbed
+    public GameObject ingredientPrefab; // Originalprefab
+    private XRGrabInteractable grabInteractable; // Grab Interactable für das Objekt
+    private GameObject spawnedPrefab; // Referenz auf das aktuelle Kopierte
+    private int ingredientCount = 0; // Zähler für eindeutige Namen
 
     void Start()
     {
-        // Initialisiere Grab Interactable und registriere das Event
         grabInteractable = gameObject.GetComponent<XRGrabInteractable>();
         grabInteractable.selectEntered.AddListener(OnGrabbed);
         Debug.Log($"Registered OnGrabbed for {gameObject.name}");
@@ -18,44 +18,38 @@ public class IngredientCopyGrab : MonoBehaviour
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
-        if (!isGrabbed)
-        {
-            isGrabbed = true; // Set the flag to true to indicate the item has been grabbed
-            GameManager.collectedIngredients[gameObject.name.Replace("(Clone)", "")]--;
-            SpawnIngredientPrefab();
-            Invoke(nameof(ResetGrabFlag), 0.1f); // Reset the flag after a short delay
-        }
-    }
-
-    private void ResetGrabFlag()
-    {
-        isGrabbed = false; // Reset the flag to allow future grabs
+        SpawnIngredientPrefab();
     }
 
     private void SpawnIngredientPrefab()
     {
-        GameObject spawnedPrefab = Instantiate(ingredientPrefab, transform.position, transform.rotation);
-        Debug.Log($"Spawned {gameObject.name} prefab at {transform.position}");
+        // Kopie erstellen
+        spawnedPrefab = Instantiate(ingredientPrefab, transform.position, transform.rotation);
+        ingredientCount++;
+        spawnedPrefab.name = $"{ingredientPrefab.name}-{ingredientCount}";
+        Debug.Log($"Spawned {spawnedPrefab.name} prefab at {transform.position}");
 
-        // Enable the grab interactable on the spawned prefab and disable it on the original
-        spawnedPrefab.GetComponent<XRGrabInteractable>().enabled = true;
-        grabInteractable.enabled = false;
+        // Komponenten deaktivieren, damit es nicht gegrabbt werden kann
+        spawnedPrefab.GetComponent<XRGrabInteractable>().enabled = false;
+        spawnedPrefab.GetComponent<BoxCollider>().enabled = false;
 
-        // Transfer the grab to the spawned prefab
-        if (grabInteractable.interactorsSelecting.Count > 0)
-        {
-            var interactor = grabInteractable.interactorsSelecting[0];
-            grabInteractable.interactionManager.SelectExit(interactor, grabInteractable);
-            grabInteractable.interactionManager.SelectEnter(interactor, spawnedPrefab.GetComponent<XRGrabInteractable>());
-        }
+        // Listener für das Zerstören des aktuellen Objekts hinzufügen
+        spawnedPrefab.GetComponent<IngredientCopyGrab>().ingredientPrefab = ingredientPrefab;
     }
 
     private void OnDestroy()
     {
-        // Remove the event listener to avoid memory leaks
+        // Sicherstellen, dass der aktuelle GrabInteractable deaktiviert ist
         if (grabInteractable != null)
         {
             grabInteractable.selectEntered.RemoveListener(OnGrabbed);
+        }
+
+        // Aktivieren der Komponenten der Kopie
+        if (spawnedPrefab != null)
+        {
+            spawnedPrefab.GetComponent<XRGrabInteractable>().enabled = true;
+            spawnedPrefab.GetComponent<BoxCollider>().enabled = true;
         }
     }
 }

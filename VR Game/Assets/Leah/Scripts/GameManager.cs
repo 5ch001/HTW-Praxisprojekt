@@ -22,7 +22,12 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
-    public static void SetIngredientCount(string ingredientName, int quantity) //for testing purposes
+    /// <summary>
+    /// Sets the quantity of the specified ingredient in the collected ingredients dictionary. This method is for testing purposes only. The dictionary fills up with ingredients as the player collects them in the game.
+    /// </summary>
+    /// <param name="ingredientName">The name of the ingredient, e.g "Pumpkin 1".</param>
+    /// <param name="quantity">The quantity to set for the ingredient.</param>
+    public static void SetIngredientCount(string ingredientName, int quantity)
     {
         if (collectedIngredients.ContainsKey(ingredientName))
         {

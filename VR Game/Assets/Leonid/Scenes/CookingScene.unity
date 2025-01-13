@@ -783,6 +783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 1652562414}
+  currentQuantity: 0
 --- !u!114 &57508803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,6 +2102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 518093025}
+  currentQuantity: 0
 --- !u!114 &239865634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2703,6 +2705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 1071999732}
+  currentQuantity: 0
 --- !u!114 &283394717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4578,6 +4581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 2130258974}
+  currentQuantity: 0
 --- !u!114 &522821592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4859,6 +4863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 696236833}
+  currentQuantity: 0
 --- !u!114 &582510957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6147,6 +6152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 1843670609}
+  currentQuantity: 0
 --- !u!114 &715179074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6328,6 +6334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 1982226210}
+  currentQuantity: 0
 --- !u!114 &770399903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9965,6 +9972,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7875805157148967885, guid: b9c613b8aa9f65644b89473c2f6ca371, type: 3}
   m_PrefabInstance: {fileID: 1130508990}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1145453915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145453917}
+  - component: {fileID: 1145453916}
+  - component: {fileID: 1145453918}
+  m_Layer: 0
+  m_Name: DestroyArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1145453916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145453915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1145453917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145453915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.269, y: 1.135, z: -1.461}
+  m_LocalScale: {x: 0.64529514, y: 0.009959485, z: 0.64529514}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145453918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145453915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447b8895330f27e448afdb9bf601f92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1151332077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13985,6 +14058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 1242730337}
+  currentQuantity: 0
 --- !u!114 &1641241948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16954,6 +17028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 517078295}
+  currentQuantity: 0
 --- !u!114 &1944828024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18282,6 +18357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 264832360}
+  currentQuantity: 0
 --- !u!114 &2032451976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19067,6 +19143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 
   countText: {fileID: 1837245934}
+  currentQuantity: 0
 --- !u!114 &2126183400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19948,3 +20025,4 @@ SceneRoots:
   - {fileID: 1743766516}
   - {fileID: 1179747649}
   - {fileID: 408811198}
+  - {fileID: 1145453917}

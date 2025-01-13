@@ -9,7 +9,7 @@ public class IngredientDisplay : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"Registered IngredientDisplay for {ingredientName}");
+        ingredientName = gameObject.name;
         GameManager.SetIngredientCount("Tomato 1", 1); //for testing purposes
         GameManager.SetIngredientCount("Pumpkin 1", 3); //for testing purposes
         GameManager.SetIngredientCount("Carrot 1", 2); //for testing purposes
@@ -17,8 +17,6 @@ public class IngredientDisplay : MonoBehaviour
         GameManager.SetIngredientCount("Banana 1", 5); //for testing purposes
         GameManager.SetIngredientCount("Fish 1", 6); //for testing purposes
         GameManager.SetIngredientCount("Meat 1", 7); //for testing purposes
-
-        currentQuantity = GameManager.GetIngredientCount(ingredientName);
     }
 
     void Update()
@@ -28,7 +26,12 @@ public class IngredientDisplay : MonoBehaviour
 
     public void UpdateDisplay()
     {
-        if (currentQuantity >= 0) countText.text = currentQuantity.ToString();
+        currentQuantity = GameManager.GetIngredientCount(ingredientName);
+        Debug.Log($"Updating display for {ingredientName}: {currentQuantity}");
+        if (currentQuantity >= 0)
+        {
+            countText.text = currentQuantity.ToString();
+        }
     }
 
 }
