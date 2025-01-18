@@ -43,18 +43,20 @@ public class DestroyOnGrab : MonoBehaviour
 
     void SaveObjectData()
     {
-        Debug.Log($"Object grabbed: {gameObject.name}");
+        string baseName = gameObject.name.Replace("(Clone)", "").Trim();
+        Debug.Log($"Object grabbed: {baseName}");
 
-        // Save the object's name to the GameManager's list of destroyed objects
-        if (GameManager.destroyedObjectNames == null)
+        if (GameManager.collectedIngredients.ContainsKey(baseName))
         {
-            GameManager.destroyedObjectNames = new System.Collections.Generic.List<string>();
+            // Key existiert: Erhöhe die Anzahl
+            GameManager.collectedIngredients[baseName]++;
         }
-        GameManager.destroyedObjectNames.Add(gameObject.name);
-
-        // Log the entire list of destroyed objects in one line
-        string objectsList = string.Join(", ", GameManager.destroyedObjectNames);
-        Debug.Log("Current List of Destroyed Objects: " + objectsList);
+        else
+        {
+            // Key existiert nicht: Füge neuen Key mit Value 1 hinzu
+            GameManager.collectedIngredients[baseName] = 1;
+        }
+        GameManager.PrintCollectedIngredients();
     }
 
     void TriggerExplosion()

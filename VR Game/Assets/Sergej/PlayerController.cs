@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         // Optional debug output
         if (isDead)
         {
+            GameManager.ResetCollectedIngredients();
             LoadNextLevel();
             Debug.Log("Game Over.");
         }
