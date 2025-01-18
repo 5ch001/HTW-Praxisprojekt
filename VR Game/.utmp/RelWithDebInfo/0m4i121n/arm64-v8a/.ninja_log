@@ -1,0 +1,10 @@
+# ninja log v5
+28	781	7583237880580080	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	b298ad355f3f3790
+6	795	7583237880715239	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f1d7bbe29f34742c
+17	809	7583237880892817	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	330da122ef770eea
+40	830	7583237881145988	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	bff19071bb87823f
+34	866	7583237881480106	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	9ec9c419eb75f0a3
+12	909	7583237881967118	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b6dc1acc4728e54f
+23	1034	7583237883183200	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	be1938c867158ef2
+0	1139	7583237884260067	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	be7c0132e6a07433
+1140	1247	7583237885378415	C:/1 Sergejs Ordner/2 HTW Module/3 Halbjahr/Module/Praxisphase VR/HTW-Praxisprojekt/VR Game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/0m4i121n/obj/arm64-v8a/libgame.so	aebed7fa955e7365

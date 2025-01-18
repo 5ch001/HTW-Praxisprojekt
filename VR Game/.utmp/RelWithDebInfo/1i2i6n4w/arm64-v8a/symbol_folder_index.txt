@@ -1,0 +1,1 @@
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\1i2i6n4w\obj\arm64-v8a

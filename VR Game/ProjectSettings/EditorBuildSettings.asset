@@ -18,6 +18,7 @@ EditorBuildSettings:
     path: Assets/Leonid/Scenes/CookingScene.unity
     guid: b7960632658e04919bfc59b2bd7c93ce
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c02d167dc1254f840bbfe674b40516aa, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6719768dfb6a9314eb05552015eafb29, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: beff1c16d642b0f42bceba68e3ce58d7, type: 2}

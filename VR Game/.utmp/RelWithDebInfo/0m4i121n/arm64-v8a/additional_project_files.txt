@@ -1,0 +1,17 @@
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\GAToUnityCallbacks.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroEnd.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroHeaderBegin.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroSourceBegin.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAApplication.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAConfiguration.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGADebug.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAEvents.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAInput.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboard.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboardCallbacks.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGATypes.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAVersion.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGACallbacks.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAConfigurationCallbacks.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAKeyEventCallbacks.h
+C:\1 Sergejs Ordner\2 HTW Module\3 Halbjahr\Module\Praxisphase VR\HTW-Praxisprojekt\VR Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAMotionEventCallbacks.h
