@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
     private float buttonHoldTime = 0f; // Tracks how long the button is held down
     private float requiredHoldTime = 3f; // Time required to trigger the action
     private float destructionRadius = 10f; // Radius within which asteroids will be destroyed
+    private ButtonParticleController particleController;
 
-      [Header("Segmented Health Bar")]
+    [Header("Segmented Health Bar")]
     public Image[] healthSegments; // 10 images total
 
       [Header("Health Gradient")]
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        particleController = FindFirstObjectByType<ButtonParticleController>(); // Suche den Partikel-Controller in der Szene
+        particleController.StopParticleSystem();
         healthAmount = 100f; // Initialize health to max
         UpdateSegmentedHealthBar();
         ResetHealthBar();
@@ -190,25 +193,33 @@ public class PlayerController : MonoBehaviour
         {
             bool isButtonPressed;
 
-            // Check if the primary button (A button) is being pressed
+            // Prüfe, ob der primäre Knopf gedrückt wird
             if (controller.TryGetFeatureValue(CommonUsages.primaryButton, out isButtonPressed) && isButtonPressed)
             {
-                buttonHoldTime += Time.deltaTime; // Increase the hold time
-                UpdatePressBar(); // Update the press bar fill amount
+                buttonHoldTime += Time.deltaTime; // Erhöhe die Haltezeit
+                UpdatePressBar(); // Aktualisiere die Press-Bar-Füllung
+
+                if (particleController != null)
+                {
+                    particleController.UpdateParticleSystem(buttonHoldTime); // Aktualisiere das Partikel-System
+                }
 
                 if (buttonHoldTime >= requiredHoldTime && !loadKitchen)
                 {
                     loadKitchen = true;
                     Debug.Log("lade Kochszene");
                     LoadNextLevel();
-                    // Also, consider adding a loading screen or transition effect
-                    // After pressing the button for 3 seconds, the player is prompted to leave the endless runner and enter the kitchen scene. That ensures that the player doesn't accidentally leave the game.
                 }
             }
             else
             {
-                buttonHoldTime = 0f; // Reset the timer if the button is released
-                ResetPressBar(); // Reset the press bar to empty
+                buttonHoldTime = 0f; // Setze den Timer zurück
+                ResetPressBar(); // Setze die Press-Bar zurück
+
+                if (particleController != null)
+                {
+                    particleController.StopParticleSystem(); // Stoppe das Partikel-System
+                }
             }
         }
     }
