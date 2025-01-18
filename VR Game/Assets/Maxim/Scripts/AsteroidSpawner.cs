@@ -4,7 +4,7 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] asteroids;
-    private float spawnInterval = 8f; //Sekunden
+    private float spawnInterval = 10f; //Sekunden
     private float spawnTimer;
     private int burstCount = 0;
     private float moveSpeed = -3f;
@@ -66,6 +66,7 @@ public class AsteroidSpawner : MonoBehaviour
         float randomZ = Random.Range(zRange.x, zRange.y);
         Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
         GameObject spawnedAsteroid = Instantiate(selectedAsteroid, spawnPosition, Quaternion.identity);
+        spawnedAsteroid.tag = "asteroid";
         spawnedAsteroids.Add(spawnedAsteroid);
     }
 
@@ -76,8 +77,14 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void MoveAndRotateObjects()
     {
-        foreach (GameObject asteroid in spawnedAsteroids)
+        for (int i = spawnedAsteroids.Count - 1; i >= 0; i--)
         {
+            GameObject asteroid = spawnedAsteroids[i];
+            if (asteroid == null)
+            {
+                spawnedAsteroids.RemoveAt(i);
+                continue;
+            }
             asteroid.transform.Translate((transform.forward * -1) * moveSpeed * Time.deltaTime, Space.World);
             asteroid.transform.Rotate(Vector3.up, rotationSpeed * 360 * Time.deltaTime);
         }
