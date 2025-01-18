@@ -12,12 +12,14 @@ public class ButtonFollowVisual : MonoBehaviour
     public Vector3 localAxis;
     public float resetSpeed = 5;
     public float followAngleThreshold = 45;
+    public float activationThreshold = 0.1f; // Threshold for activation
     private bool freeze = false;
     private Vector3 initialLocalPos;
     private Vector3 offset;
     private Transform pokeAttachTransform;
     private XRBaseInteractable interactable;
     private bool isFollowing = false;
+    private bool isActivated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +35,12 @@ public class ButtonFollowVisual : MonoBehaviour
 
     public void Follow(BaseInteractionEventArgs hover)
     {
-        if(hover.interactorObject is XRPokeInteractor)
+        if(hover.interactorObject is XRDirectInteractor)
         {
-            XRPokeInteractor interactor = (XRPokeInteractor)hover.interactorObject;
-
+            Debug.Log("Follow method called");
             isFollowing = true;
 
-            pokeAttachTransform = interactor.attachTransform;
+            pokeAttachTransform = hover.interactorObject.GetAttachTransform(interactable);
             offset = visualTarget.position - pokeAttachTransform.position;
 
             float pokeAngle = Vector3.Angle(offset, visualTarget.TransformDirection(localAxis));
@@ -48,28 +49,33 @@ public class ButtonFollowVisual : MonoBehaviour
             {
                 isFollowing = false;
                 freeze = true;
+                Debug.Log("Poke angle exceeded threshold, freezing");
             }
         }
     }
 
     public void ChangeScene(BaseInteractionEventArgs args)
     {
+        Debug.Log("ChangeScene method called");
         SceneManager.LoadScene("SpaceScene");
     }
 
     public void Reset(BaseInteractionEventArgs hover)
     {
-        if(hover.interactorObject is XRPokeInteractor)
+        if(hover.interactorObject is XRDirectInteractor)
         {
+            Debug.Log("Reset method called");
             isFollowing = false;
             freeze = false;
+            isActivated = false;
         }
     }
 
     public void Freeze(BaseInteractionEventArgs hover)
     {
-        if(hover.interactorObject is XRPokeInteractor)
+        if(hover.interactorObject is XRDirectInteractor)
         {
+            Debug.Log("Freeze method called");
             freeze = true;
         }
     }
@@ -86,6 +92,14 @@ public class ButtonFollowVisual : MonoBehaviour
             Vector3 constrainedLocalTargetPosition = Vector3.Project(localTargetPosition, localAxis);
 
             visualTarget.position = visualTarget.TransformPoint(constrainedLocalTargetPosition);
+
+            // Check if the button is pushed down to the activation threshold
+            if (!isActivated && Vector3.Distance(visualTarget.localPosition, initialLocalPos) > activationThreshold)
+            {
+                isActivated = true;
+                Debug.Log("Button activated");
+                ChangeScene(null); // Call ChangeScene method
+            }
         }
         else
         {

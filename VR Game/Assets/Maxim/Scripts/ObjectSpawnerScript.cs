@@ -11,11 +11,11 @@ public class ObjectSpawnerScript : MonoBehaviour
     private Vector2 xRange = new Vector2(-0.3f, 0.6f); //based on position of ObjectSpawner
     private Vector2 yRange = new Vector2(1f, 2f); //based on position of ObjectSpawner
     private Vector2 zRange = new Vector2(-40f, -36f); //based on position of (0, 0, 0) (ObjectSpawner ist bei z = 40)
-    private float moveSpeed = -3f;
+    private float moveSpeed = -3.0f;
     private float rotationSpeed = 0.2f;
-    private float speedIncrease = -0.025f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
-    private float maxSpeed = -12.0f; //Ebenfalls variabel
-    private float spawnReductionRate = 0.002f; //Auch variabel
+    private float speedIncrease = -0.035f; //Variabler Wert, je nachdem wie schwer/schnell es sich anfühlt
+    private float maxSpeed = -15.0f; //Ebenfalls variabel
+    private float spawnReductionRate = 0.005f; //Auch variabel
     private float minSpawnInterval = 1.5f; //ditto
     private float burstInterval = 0.2f;
     private int burstObjects;
@@ -32,6 +32,8 @@ public class ObjectSpawnerScript : MonoBehaviour
         HandleSpawning();
         MoveAndRotateObjects();
         DeleteOldObjects();
+        Debug.Log("moveSpeed: " + moveSpeed);
+        Debug.Log("spawnInterval: " + spawnInterval);
     }
 
     private void SpawnObject() //called by HandleSpawning()
@@ -88,7 +90,15 @@ public class ObjectSpawnerScript : MonoBehaviour
     }
     private void HandleSpawning()
     {
-        burstObjects = Random.Range(2, 5); //War davor auf 3
+        if (spawnInterval > 2.0f)
+        {
+            burstObjects = Random.Range(3, 5);
+        }
+        else
+        {
+            burstObjects = Random.Range(3, 6);
+        }
+
         spawnTimer += Time.deltaTime;
 
         if (spawnInterval > minSpawnInterval) spawnInterval -= spawnReductionRate * Time.deltaTime;

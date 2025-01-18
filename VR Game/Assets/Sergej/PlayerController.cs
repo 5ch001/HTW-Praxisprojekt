@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         if (isDead)
         {
             GameManager.ResetCollectedIngredients();
-            LoadNextLevel();
+            SceneManager.LoadScene("MarsScene");
             Debug.Log("Game Over.");
         }
     }
