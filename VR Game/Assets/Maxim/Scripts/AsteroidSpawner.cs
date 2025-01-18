@@ -4,7 +4,9 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] asteroids;
-    private float spawnInterval = 10f; //Sekunden
+    private float spawnInterval = 25f; //Sekunden
+    private float spawnReduction = 1.5f; //Sekunden
+    private float maxSpawnInterval = 10f;
     private float spawnTimer;
     private int burstCount = 0;
     private float moveSpeed = -3f;
@@ -43,6 +45,7 @@ public class AsteroidSpawner : MonoBehaviour
             inBurst = true;
             spawnTimer = 0f;
             burstCount = burstObjects;
+            spawnInterval = Mathf.Max(spawnInterval - spawnReduction, maxSpawnInterval); // Decrease spawn interval
         }
 
         if (inBurst)
