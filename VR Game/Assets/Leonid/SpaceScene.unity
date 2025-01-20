@@ -8209,8 +8209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062b402c2e055954f90c36596b250bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMusicClip: {fileID: 8300000, guid: 2509e8cbdc038934c83d96e82a8724fd, type: 3}
+  sceneMusicClip: {fileID: 8300000, guid: 597230fa88c80914fac7b3e7a353c072, type: 3}
   musicVolume: 0.2
+  startSoundClip: {fileID: 8300000, guid: 07399290728221d4d8a44281c68abdd0, type: 3}
+  startSoundVolume: 0.4
 --- !u!4 &1048147654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1011231544716423591, guid: 072829b5384996447b48858907cf94b3, type: 3}
