@@ -9,6 +9,7 @@ TagManager:
   - Actors
   - asteroid
   - TrackingObject
+  - Ingredient
   layers:
   - Default
   - TransparentFX

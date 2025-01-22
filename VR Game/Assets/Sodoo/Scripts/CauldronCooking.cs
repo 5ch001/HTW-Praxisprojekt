@@ -103,13 +103,6 @@ public class CauldronCooking : MonoBehaviour
         return defaultDishPrefab;
     }
 
-        void Update()
-    {
-        if (OVRInput.GetDown(OVRInput.Button.One)) // A-Button des Oculus-Controllers
-        {
-            Debug.Log("A button pressed!");
-            Cook();
-        }
-    }
+        
 
 }
