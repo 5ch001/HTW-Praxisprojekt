@@ -5086,7 +5086,7 @@ Transform:
   m_GameObject: {fileID: 296530417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8122706, y: -1.3004274, z: -0.6698306}
+  m_LocalPosition: {x: -1.8122706, y: 0, z: -1}
   m_LocalScale: {x: -39.40576, y: -39.40576, z: -39.40576}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10765,7 +10765,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 021ac0b53b4986e459bfa49666ef1368, type: 2}
+  - {fileID: 2100012, guid: 7977e423937da9b48aac1866c67bb5be, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14092,6 +14092,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d626a930b38ebd348b5831482284bbf2, type: 3}
   m_PrefabInstance: {fileID: 1094537563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1101215015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101215018}
+  - component: {fileID: 1101215016}
+  m_Layer: 0
+  m_Name: RoadLights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1101215016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101215015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24457f3ccb8df584fb83df8489e3b8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 179713519}
+  - {fileID: 296530420}
+  - {fileID: 1896633577}
+  - {fileID: 1715010871}
+  - {fileID: 1555897752}
+  - {fileID: 1399507053}
+  - {fileID: 1786351917}
+  blinkInterval: 0.15
+  maxIntensity: 10
+  minIntensity: 0
+--- !u!4 &1101215018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101215015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 439.81012, y: 31.563091, z: 316.6443}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1104647891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25613,6 +25668,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93552e40d10240043a98e1e37d773f4e, type: 3}
   m_PrefabInstance: {fileID: 1907560012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1910996727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910996729}
+  - component: {fileID: 1910996728}
+  m_Layer: 0
+  m_Name: RoadlightsRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1910996728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910996727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1bc016e1655d044846ff9bb66b5ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 420407634}
+  - {fileID: 811346838}
+  - {fileID: 1164556398}
+  - {fileID: 1670660279}
+  - {fileID: 2053845814}
+  - {fileID: 278257769}
+  - {fileID: 271000064}
+  blinkInterval: 0.15
+  maxIntensity: 10
+  minIntensity: 0
+--- !u!4 &1910996729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910996727}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 440.40714, y: 21.262266, z: 324.44717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912088448
 GameObject:
   m_ObjectHideFlags: 0
@@ -29140,3 +29250,5 @@ SceneRoots:
   - {fileID: 439058388}
   - {fileID: 1350601420}
   - {fileID: 1930646639}
+  - {fileID: 1101215018}
+  - {fileID: 1910996729}

@@ -8212,7 +8212,7 @@ MonoBehaviour:
   sceneMusicClip: {fileID: 8300000, guid: f0e50a04f07b6ad44af94cf210d42a58, type: 3}
   musicVolume: 0.2
   startSoundClip: {fileID: 8300000, guid: 07399290728221d4d8a44281c68abdd0, type: 3}
-  startSoundVolume: 0.4
+  startSoundVolume: 1
 --- !u!4 &1048147654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1011231544716423591, guid: 072829b5384996447b48858907cf94b3, type: 3}
