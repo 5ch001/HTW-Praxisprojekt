@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float requiredHoldTime = 3f; // Time required to trigger the action
     private float destructionRadius = 10f; // Radius within which asteroids will be destroyed
     private ButtonParticleController particleController;
+    SceneTransitionManager sceneTransitionManager;
 
     [Header("Segmented Health Bar")]
     public Image[] healthSegments; // 10 images total
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         particleController = FindFirstObjectByType<ButtonParticleController>(); // Suche den Partikel-Controller in der Szene
+        sceneTransitionManager = FindObjectOfType<SceneTransitionManager>();
         particleController.StopParticleSystem();
         healthAmount = 100f; // Initialize health to max
         UpdateSegmentedHealthBar();
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
         if (isDead)
         {
             GameManager.ResetCollectedIngredients();
-            SceneManager.LoadScene("MarsScene");
+            sceneTransitionManager.GoToScene(0); // Load in MarsScene
             Debug.Log("Game Over.");
         }
     }
@@ -172,19 +174,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void LoadNextLevel()
-    {
-        StartCoroutine(LoadLevel());
-    }
-
-    IEnumerator LoadLevel()
-    {
-        transitionAnim.SetTrigger("End2");
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadSceneAsync("CookingScene");
-        transitionAnim.SetTrigger("Start2");
-    }
-
     private void LoadKitchenScene()
     {
         InputDevice controller = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
@@ -208,7 +197,7 @@ public class PlayerController : MonoBehaviour
                 {
                     loadKitchen = true;
                     Debug.Log("lade Kochszene");
-                    LoadNextLevel();
+                    sceneTransitionManager.GoToScene(2); // Load in CookingScene
                 }
             }
             else
