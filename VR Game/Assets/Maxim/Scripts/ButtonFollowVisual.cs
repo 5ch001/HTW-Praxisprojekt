@@ -20,10 +20,12 @@ public class ButtonFollowVisual : MonoBehaviour
     private XRBaseInteractable interactable;
     private bool isFollowing = false;
     private bool isActivated = false;
+    SceneTransitionManager sceneTransitionManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        sceneTransitionManager = FindObjectOfType<SceneTransitionManager>();
         initialLocalPos = visualTarget.localPosition;
 
         interactable = GetComponent<XRBaseInteractable>();
@@ -57,7 +59,7 @@ public class ButtonFollowVisual : MonoBehaviour
     public void ChangeScene(BaseInteractionEventArgs args)
     {
         Debug.Log("ChangeScene method called");
-        SceneManager.LoadScene("SpaceScene");
+        sceneTransitionManager.GoToScene(1); // Load in SpaceScene
     }
 
     public void Reset(BaseInteractionEventArgs hover)
