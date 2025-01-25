@@ -179,10 +179,10 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator LoadLevel()
     {
-        transitionAnim.SetTrigger("End");
-        yield return new WaitForSeconds(1);
+        transitionAnim.SetTrigger("End2");
+        yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync("CookingScene");
-        transitionAnim.SetTrigger("Start");
+        transitionAnim.SetTrigger("Start2");
     }
 
     private void LoadKitchenScene()
