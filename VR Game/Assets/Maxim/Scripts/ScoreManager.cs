@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,6 +13,21 @@ public class ScoreManager : MonoBehaviour
     private float timeElapsed = 0f;
     private float increaseInterval = 10f; //10 seconds
     public GameObject scorePopupPrefab;
+
+    private const string DefaultPlayerName = "PlayerHTW";
+     public static ScoreManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Behält das Objekt beim Szenenwechsel
+    }
 
     void Start()
     {
@@ -73,5 +91,50 @@ public class ScoreManager : MonoBehaviour
 
         Destroy(popup);
     }
+    private const string HighscoresKey = "Highscores"; // Key für die Highscores in PlayerPrefs
+
+   public void SaveScore()
+    {
+        // Load current high scores
+        List<HighscoreEntry> highscores = LoadHighscores();
+
+        // Add the new score with the default player name
+        highscores.Add(new HighscoreEntry { playerName = DefaultPlayerName, score = playerScore });
+
+        // Sort high scores (highest score first)
+        highscores.Sort((x, y) => y.score.CompareTo(x.score));
+
+        // Save high scores
+        string json = JsonUtility.ToJson(new HighscoreList { entries = highscores });
+        PlayerPrefs.SetString(HighscoresKey, json);
+        PlayerPrefs.Save();
+
+        Debug.Log("Score saved: " + DefaultPlayerName + " - " + playerScore);
+    }
+
+    public void EndGameAndSave()
+    {
+        SaveScore(); // Save the current score with the default player name
+        
+    }
+
+    // Load high scores
+    private List<HighscoreEntry> LoadHighscores()
+{
+    if (PlayerPrefs.HasKey(HighscoresKey))
+    {
+        try
+        {
+            string json = PlayerPrefs.GetString(HighscoresKey);
+            return JsonUtility.FromJson<HighscoreList>(json).entries;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Failed to load highscores: " + ex.Message);
+            PlayerPrefs.DeleteKey(HighscoresKey); // Lösche fehlerhafte Daten
+        }
+    }
+    return new List<HighscoreEntry>();
+}
 
 }

@@ -71,6 +71,30 @@ public class PlayerController : MonoBehaviour
             DestroyNearbyAsteroids(other.transform.position); // Destroy nearby asteroids
         }
     }
+    private IEnumerator LoadLobbyScene()
+{
+    // Asynchron die Lobby-Szene laden
+    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MarsScene");
+
+    // Warte, bis die Szene vollständig geladen ist
+    while (!asyncLoad.isDone)
+    {
+        yield return null;
+    }
+
+    // Nach dem Szenenwechsel das Leaderboard aktualisieren
+    LeaderboardDisplay leaderboardDisplay = FindObjectOfType<LeaderboardDisplay>();
+    if (leaderboardDisplay != null)
+    {
+        leaderboardDisplay.DisplayLeaderboard(); // Aktualisiere das Leaderboard
+        Debug.Log("Leaderboard wurde aktualisiert.");
+    }
+    else
+    {
+        Debug.LogWarning("Kein LeaderboardDisplay in der Lobby-Szene gefunden.");
+    }
+}
+
 
     public void TakeDamage(float damage)
     {
@@ -80,14 +104,21 @@ public class PlayerController : MonoBehaviour
         UpdateSegmentedHealthBar();
         SoundManager.Instance.PlayPainSound();
 
-        if (healthAmount <= 0f)
+        if (healthAmount <= 0f && !isDead) // Stelle sicher, dass dies nur einmal passiert
+    {
+        isDead = true;
+        Debug.Log("Player ist tot!");
+
+        // Punktzahl speichern
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        if (scoreManager != null)
         {
-            isDead = true;
-            Debug.Log("Player is dead!");
-            //TODO:
-            // Additional logic for player death (e.g., game over screen) can go here
-            // If player dies, load him into the lobby scene (maybe after pressing a button? Or automatically after a constant time (5sec, 3sec?)) and remove all grabbed ingredients from the list.
+            scoreManager.SaveScore(); // Speichere die Punktzahl vor dem Szenenwechsel
         }
+
+        // Coroutine starten, um die Lobby-Szene zu laden und das Leaderboard zu aktualisieren
+        StartCoroutine(LoadLobbyScene());
+    }
     }
 
     private void UpdateSegmentedHealthBar()
