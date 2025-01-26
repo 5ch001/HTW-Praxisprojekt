@@ -23760,10 +23760,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FaderScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 6729741943712949265, guid: 24391d759b9e418428c531d93140ef4d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8739782166698275176, guid: 24391d759b9e418428c531d93140ef4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
