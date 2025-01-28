@@ -5,19 +5,19 @@ public class CauldronCooking : MonoBehaviour
 {
     public RecipeManager recipeManager; // Referenz zum RecipeManager
     public CauldronTrigger cauldronTrigger; // Referenz zur Trigger-Zone
-    public List<GameObject> dishPrefabs; // Liste der 3D Prefabs für verschiedene Gerichte
+    public List<GameObject> dishSprites; // Liste der 2D Sprites für verschiedene Gerichte
     public Transform dishSpawnPoint; // Der Punkt, an dem das Gericht erscheint (kann ein leeres GameObject in der Szene sein)
-    public GameObject currentDish; // Das aktuell angezeigte 3D-Gericht (wird instanziiert)
-    public GameObject defaultDishPrefab; // Das Standardgericht, falls kein Rezept gefunden wird (3D-Modell)
+    public GameObject currentDish; // Das aktuell angezeigte 2D-Sprite des Gerichts
+    public GameObject defaultDishSprite; // Der Standard-Sprite, das angezeigt wird, wenn kein passendes Rezept gefunden wird
 
     // Diese Funktion wird ausgelöst, wenn der Spieler den Kochprozess startet
+
+    void Update() 
+    {
+        if (cauldronTrigger.collectedIngredients.Count == 3) Cook();
+    }
     public void Cook()
     {
-        if (cauldronTrigger.collectedIngredients.Count == 0)
-        {
-            Debug.Log("Keine Zutaten im Kessel!");
-            return;
-        }
 
         // Überprüfe die Zutaten und finde das passende Gericht
         string cookedDishName = CheckRecipe();
@@ -50,7 +50,7 @@ public class CauldronCooking : MonoBehaviour
             }
 
             // Standardgericht erzeugen
-            currentDish = Instantiate(defaultDishPrefab, dishSpawnPoint.position, Quaternion.identity);
+            currentDish = Instantiate(defaultDishSprite, dishSpawnPoint.position, Quaternion.identity);
             currentDish.name = "Default Dish"; // Setze den Namen des Standardgerichts
         }
 
@@ -91,7 +91,7 @@ public class CauldronCooking : MonoBehaviour
     private GameObject GetDishPrefab(string dishName)
     {
         // Gehe durch alle Prefabs und finde das, das zum Gericht passt
-        foreach (GameObject prefab in dishPrefabs)
+        foreach (GameObject prefab in dishSprites)
         {
             if (prefab.name == dishName)
             {
@@ -100,7 +100,7 @@ public class CauldronCooking : MonoBehaviour
         }
 
         // Falls kein Prefab gefunden wird, gebe das Default Prefab zurück
-        return defaultDishPrefab;
+        return defaultDishSprite;
     }
 
         
