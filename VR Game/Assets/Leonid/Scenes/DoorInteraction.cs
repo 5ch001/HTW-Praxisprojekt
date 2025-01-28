@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class DoorInteraction : MonoBehaviour
 {
-    public string sceneToLoad = "Lobby"; // Scene name for the lobby
-    public GameObject tooltipUI; // Optional: Tooltip to inform the player
-    public Transform door; // Reference to the door object (for animations or effects)
-    public AudioClip doorSound; // Optional: Sound effect for the door interaction
+    public string sceneToLoad = "MarsScene"; 
+    public GameObject tooltipUI; 
+    public Transform door; // (for animations or effects)
+    public AudioClip doorSound; // Sound effect 
     private AudioSource audioSource;
-    private bool isActivated = false; // To prevent multiple activations
+    private bool isActivated = false; 
 
     void Start()
     {
         if (tooltipUI != null)
-            tooltipUI.SetActive(false); // Hide tooltip initially
+            tooltipUI.SetActive(false); 
 
         if (doorSound != null)
         {
@@ -41,28 +41,28 @@ public class DoorInteraction : MonoBehaviour
 
     public void OnDoorClick(UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor)
     {
-        if (isActivated) return; // Prevent multiple clicks
+        if (isActivated) return; 
         isActivated = true;
 
-        // Play door sound if available
+        
         if (audioSource != null)
             audioSource.Play();
 
-        // Optional: Animate the door opening
+       
         if (door != null)
         {
             StartCoroutine(OpenDoorAnimation());
         }
 
         // Load the next scene
-        StartCoroutine(LoadSceneAfterDelay(1.5f)); // Adjust delay to match the door animation
+        StartCoroutine(LoadSceneAfterDelay(1.5f)); 
     }
 
     private IEnumerator OpenDoorAnimation()
     {
-        float duration = 1.0f; // Duration of the animation
+        float duration = 1.0f; 
         Quaternion initialRotation = door.rotation;
-        Quaternion targetRotation = Quaternion.Euler(door.eulerAngles + new Vector3(0, 90, 0)); // Open by 90 degrees
+        Quaternion targetRotation = Quaternion.Euler(door.eulerAngles + new Vector3(0, 90, 0)); 
 
         float elapsed = 0;
         while (elapsed < duration)

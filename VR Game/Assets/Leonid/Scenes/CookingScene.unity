@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &24530293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18810,7 +18810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35f00f66a38e97438224dd3958b177e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Lobby
+  sceneToLoad: MarsScene
   tooltipUI: {fileID: 1667521913}
   door: {fileID: 1543031880}
   doorSound: {fileID: 0}
