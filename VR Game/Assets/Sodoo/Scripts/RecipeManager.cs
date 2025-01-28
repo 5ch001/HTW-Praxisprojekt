@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,7 +14,7 @@ public class RecipeManager : MonoBehaviour
     public List<Recipe> recipes = new List<Recipe>(); 
     public List<Sprite> dishSprites = new List<Sprite>(); // Liste der Gericht-Sprites
     public GameObject dishPrefab; // Prefab des Gerichts
-
+    public Image dishImage; // Bild des Gerichts
     void Start()
     {
         recipes.Add(new Recipe { name = "Fish Sandwich", ingredients = new List<string> { "Fish", "Bread", "Apple" } });
@@ -44,16 +45,7 @@ public class RecipeManager : MonoBehaviour
                 Debug.Log("Rezept gefunden: " + recipes[i].name);
 
                 // Gericht erzeugen
-                GameObject dish = Instantiate(dishPrefab, transform.position, Quaternion.identity);
-                dish.name = recipes[i].name;
-
-                // Gericht-Sprite zuweisen
-                SpriteRenderer renderer = dish.GetComponent<SpriteRenderer>();
-                if (renderer != null && i < dishSprites.Count)
-                {
-                    renderer.sprite = dishSprites[i];
-                }
-                return dish;
+                dishImage.sprite = dishSprites[i]; // Setze das passende Gericht-Sprite
             }
         }
 
