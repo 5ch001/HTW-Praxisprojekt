@@ -1,71 +1,77 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Recipe
 {
-    public string name; 
-    public List<string> ingredients; 
+    public string name;
+    public List<string> ingredients;
 }
 
 public class RecipeManager : MonoBehaviour
 {
-    public List<Recipe> recipes = new List<Recipe>(); 
+    public List<Recipe> recipes = new List<Recipe>();
     public List<Sprite> dishSprites = new List<Sprite>(); // Liste der Gericht-Sprites
-    public GameObject dishPrefab; // Prefab des Gerichts
+    public Sprite anythingElseSprite; // Der Standard-Sprite, der angezeigt wird, wenn kein passendes Rezept gefunden wird
 
     void Start()
     {
-        
-        recipes.Add(new Recipe { name = "Pasta", ingredients = new List<string> { "Noodles", "Tomato", "Cheese" } });
-        recipes.Add(new Recipe { name = "Omelette", ingredients = new List<string> { "Milk", "Eggs", "Paprika" } });
-        recipes.Add(new Recipe { name = "Burger", ingredients = new List<string> { "Tomato", "Steak", "Mushroom" } });
-        recipes.Add(new Recipe { name = "Apple", ingredients = new List<string> { "Watermelon", "Pear" } });
-        recipes.Add(new Recipe { name = "Bread", ingredients = new List<string> { "Tomato", "Steak", "Mushroom" } });
-        recipes.Add(new Recipe { name = "Burger", ingredients = new List<string> { "Tomato", "Steak", "Mushroom" } });
-        recipes.Add(new Recipe { name = "Broccoli", ingredients = new List<string> { "Tomato", "Steak", "Mushroom" } });
-        
-        // TODO: Stelle sicher, dass dishSprites die passenden Sprites in der gleichen Reihenfolge wie die Rezepte enthält
+        recipes.Add(new Recipe { name = "Fish Sandwich", ingredients = new List<string> { "Fish", "Bread", "Apple" } }); //Rare
+        recipes.Add(new Recipe { name = "Spicy Fish Stew", ingredients = new List<string> { "Fish", "Carrot", "Pepper" } }); //Rare 
+        recipes.Add(new Recipe { name = "Golden Veggie Skewers", ingredients = new List<string> { "Carrot", "Pepper", "Mushroom" } }); //Rare
+        recipes.Add(new Recipe { name = "Roasted Veggie Casserole", ingredients = new List<string> { "Carrot", "Pumpkin", "Tomato" } }); //Rare
+        recipes.Add(new Recipe { name = "Fruit Pie", ingredients = new List<string> { "Bread", "Pear", "Apple" } }); //Rare
+        recipes.Add(new Recipe { name = "Spiced Pear Bake", ingredients = new List<string> { "Pear", "Pepper", "Pumpkin" } }); //Rare
+        recipes.Add(new Recipe { name = "Tomato Bruschetta", ingredients = new List<string> { "Tomato", "Bread", "Pepper" } }); //Rare
+        recipes.Add(new Recipe { name = "Autumn Veggie Soup", ingredients = new List<string> { "Carrot", "Pumpkin", "Mushroom" } }); //Rare
+        recipes.Add(new Recipe { name = "Heavenly Fruit Tart", ingredients = new List<string> { "Banana", "Pear", "Apple" } }); //Rare
+        recipes.Add(new Recipe { name = "Rustic Meat Pie", ingredients = new List<string> { "Steak", "Bread", "Pumpkin" } }); //Rare
+        recipes.Add(new Recipe { name = "Hearty Meat Stew", ingredients = new List<string> { "Tomato", "Steak", "Pepper" } }); //Legendary
+        recipes.Add(new Recipe { name = "Surf & Turf Supreme", ingredients = new List<string> { "Tomato", "Fish", "Pepper" } }); //Legendary
+        recipes.Add(new Recipe { name = "Meat Stuffed Pumpkin", ingredients = new List<string> { "Steak", "Pumpkin", "Carrot" } }); //Legendary
+        recipes.Add(new Recipe { name = "Spiced Mushroom Delight", ingredients = new List<string> { "Mushroom", "Bread", "Pepper" } }); //Legendary
+        recipes.Add(new Recipe { name = "Caramelized Pumpkin Tart", ingredients = new List<string> { "Pumpkin", "Bread", "Banana" } }); //Legendary
     }
 
-    public GameObject CookDish(List<string> collectedIngredients)
+    public string CheckRecipe(List<string> collectedIngredients)
     {
-        // Durchlaufe die Rezepte und suche nach einem passenden
-        for (int i = 0; i < recipes.Count; i++)
+        foreach (Recipe recipe in recipes)
         {
-            if (IsMatch(recipes[i].ingredients, collectedIngredients))
+            if (IsMatch(recipe.ingredients, collectedIngredients))
             {
-                Debug.Log("Rezept gefunden: " + recipes[i].name);
-
-                // Gericht erzeugen
-                GameObject dish = Instantiate(dishPrefab, transform.position, Quaternion.identity);
-                dish.name = recipes[i].name;
-
-                // Gericht-Sprite zuweisen
-                SpriteRenderer renderer = dish.GetComponent<SpriteRenderer>();
-                if (renderer != null && i < dishSprites.Count)
-                {
-                    renderer.sprite = dishSprites[i];
-                }
-                return dish;
+                return recipe.name; // Rezept gefunden
             }
         }
-
-        Debug.Log("Kein passendes Rezept gefunden.");
         return null; // Kein Rezept gefunden
     }
 
     private bool IsMatch(List<string> recipeIngredients, List<string> collectedIngredients)
     {
-        // Prüfe, ob die Zutaten übereinstimmen
-        if (recipeIngredients.Count != collectedIngredients.Count)
+        if (collectedIngredients.Count != recipeIngredients.Count)
             return false;
 
         foreach (string ingredient in recipeIngredients)
         {
             if (!collectedIngredients.Contains(ingredient))
+            {
                 return false;
+            }
         }
         return true;
+    }
+
+    public Sprite GetDishSprite(string dishName)
+    {
+        foreach (Sprite sprite in dishSprites)
+        {
+            if (sprite.name == dishName)
+            {
+                return sprite; // Gefundenes Sprite zurückgeben
+            }
+        }
+
+        // Falls kein Sprite gefunden wird, gebe das Default Sprite zurück (sollte nicht geschehen)
+        return anythingElseSprite;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
-    private float playerScore = 0f;
+    public float playerScore = 0f;
     public float scoreMultiplier = 2f; //arbitrary value
     private float timeElapsed = 0f;
     private float increaseInterval = 10f; //10 seconds
@@ -45,6 +45,14 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(float score) { //Called when player destroys an object (in DestroyOnGrab.cs)
         playerScore += score;
         ShowScorePopup(score);
+    }
+
+    public float GetScore() {
+        return playerScore;
+    }
+
+    public void SetScore(float score) {
+        playerScore = score;
     }
 
     private void ShowScorePopup(float score)

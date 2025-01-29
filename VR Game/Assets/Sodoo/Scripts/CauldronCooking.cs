@@ -1,108 +1,48 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class CauldronCooking : MonoBehaviour
 {
     public RecipeManager recipeManager; // Referenz zum RecipeManager
     public CauldronTrigger cauldronTrigger; // Referenz zur Trigger-Zone
-    public List<GameObject> dishPrefabs; // Liste der 3D Prefabs für verschiedene Gerichte
-    public Transform dishSpawnPoint; // Der Punkt, an dem das Gericht erscheint (kann ein leeres GameObject in der Szene sein)
-    public GameObject currentDish; // Das aktuell angezeigte 3D-Gericht (wird instanziiert)
-    public GameObject defaultDishPrefab; // Das Standardgericht, falls kein Rezept gefunden wird (3D-Modell)
+    public SpriteRenderer dishImage; // Der SpriteRenderer, der das Gericht anzeigt
+    public ScoreManager scoreManager; // Referenz zum ScoreManager
 
-    // Diese Funktion wird ausgelöst, wenn der Spieler den Kochprozess startet
+    void Start() 
+    {
+        scoreManager = FindFirstObjectByType<ScoreManager>();
+    }
+    void Update()
+    {
+        if (cauldronTrigger.collectedIngredients.Count == 3)
+        {
+            Cook();
+        }
+    }
+
     public void Cook()
     {
-        if (cauldronTrigger.collectedIngredients.Count == 0)
-        {
-            Debug.Log("Keine Zutaten im Kessel!");
-            return;
-        }
-
         // Überprüfe die Zutaten und finde das passende Gericht
-        string cookedDishName = CheckRecipe();
+        string cookedDishName = recipeManager.CheckRecipe(cauldronTrigger.collectedIngredients);
 
         if (cookedDishName != null)
         {
             Debug.Log("Gekocht: " + cookedDishName);
 
-            // Lösche das vorherige Gericht, falls eines vorhanden ist
-            if (currentDish != null)
-            {
-                Destroy(currentDish); // Lösche das alte Gericht
-            }
+            // Finde das passende Sprite basierend auf dem Namen des Gerichts
+            Sprite dishSprite = recipeManager.GetDishSprite(cookedDishName);
 
-            // Finde das passende Prefab basierend auf dem Namen des Gerichts
-            GameObject dishPrefab = GetDishPrefab(cookedDishName);
-
-            // Gericht erzeugen (3D-Objekt instanziieren)
-            currentDish = Instantiate(dishPrefab, dishSpawnPoint.position, Quaternion.identity);
-            currentDish.name = cookedDishName; // Setze den Namen des Gerichts
+            // Gericht anzeigen (Sprite ändern)
+            dishImage.sprite = dishSprite;
         }
         else
         {
             Debug.Log("Kein passendes Rezept gefunden. Zeige Standardgericht.");
 
-            // Standardgericht erzeugen, wenn kein Rezept gefunden wird
-            if (currentDish != null)
-            {
-                Destroy(currentDish); // Lösche das alte Gericht
-            }
-
-            // Standardgericht erzeugen
-            currentDish = Instantiate(defaultDishPrefab, dishSpawnPoint.position, Quaternion.identity);
-            currentDish.name = "Default Dish"; // Setze den Namen des Standardgerichts
+            // Standardgericht anzeigen, wenn kein Rezept gefunden wird
+            dishImage.sprite = recipeManager.anythingElseSprite;
         }
 
         // Zutaten zurücksetzen
         cauldronTrigger.collectedIngredients.Clear();
     }
-
-    private string CheckRecipe()
-    {
-        foreach (Recipe recipe in recipeManager.recipes)
-        {
-            if (IsMatch(recipe.ingredients))
-            {
-                return recipe.name; // Rezept gefunden
-            }
-        }
-        return null; // Kein Rezept gefunden
-    }
-
-    private bool IsMatch(List<string> recipeIngredients)
-    {
-        List<string> collected = cauldronTrigger.collectedIngredients;
-
-        if (collected.Count != recipeIngredients.Count)
-            return false;
-
-        foreach (string ingredient in recipeIngredients)
-        {
-            if (!collected.Contains(ingredient))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Gibt das passende Prefab für das Gericht zurück
-    private GameObject GetDishPrefab(string dishName)
-    {
-        // Gehe durch alle Prefabs und finde das, das zum Gericht passt
-        foreach (GameObject prefab in dishPrefabs)
-        {
-            if (prefab.name == dishName)
-            {
-                return prefab; // Gefundenes Prefab zurückgeben
-            }
-        }
-
-        // Falls kein Prefab gefunden wird, gebe das Default Prefab zurück
-        return defaultDishPrefab;
-    }
-
-        
-
 }

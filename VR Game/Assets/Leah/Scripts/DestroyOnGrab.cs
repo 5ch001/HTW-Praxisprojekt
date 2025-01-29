@@ -70,7 +70,7 @@ public class DestroyOnGrab : MonoBehaviour
 
         if (scoreManager != null)
         {
-            scoreManager.AddScore(50f); // arbitrary value
+            scoreManager.AddScore(15f); // arbitrary value
         }
         else
         {

@@ -12,8 +12,6 @@ public class CauldronTrigger : MonoBehaviour
             string ingredientName = other.gameObject.name;
             collectedIngredients.Add(ingredientName);
             Debug.Log("Zutat hinzugefügt: " + ingredientName);
-
-            
             Destroy(other.gameObject);
         }
     }
