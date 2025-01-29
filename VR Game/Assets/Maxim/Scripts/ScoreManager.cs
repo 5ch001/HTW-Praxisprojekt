@@ -11,11 +11,6 @@ public class ScoreManager : MonoBehaviour
     private float increaseInterval = 10f; //10 seconds
     public GameObject scorePopupPrefab;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         ResetScore();
