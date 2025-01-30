@@ -33,6 +33,8 @@ public class CauldronCooking : MonoBehaviour
 
             // Gericht anzeigen (Sprite ändern)
             dishImage.sprite = dishSprite;
+
+            recipeManager.IncreaseScoreBasedOnDish(cookedDishName);
         }
         else
         {
@@ -40,6 +42,8 @@ public class CauldronCooking : MonoBehaviour
 
             // Standardgericht anzeigen, wenn kein Rezept gefunden wird
             dishImage.sprite = recipeManager.anythingElseSprite;
+
+            recipeManager.IncreaseScoreBasedOnDish(null); // null, da kein passendes Rezept gefunden wurde
         }
 
         // Zutaten zurücksetzen

@@ -74,4 +74,35 @@ public class RecipeManager : MonoBehaviour
         // Falls kein Sprite gefunden wird, gebe das Default Sprite zurück (sollte nicht geschehen)
         return anythingElseSprite;
     }
+
+    public void IncreaseScoreBasedOnDish(string dishName)
+    {
+        int scoreToAdd = 0;
+
+        // Überprüfe, ob das Gericht in der Liste der Rezepte ist
+        for (int i = 0; i < recipes.Count; i++)
+        {
+            if (recipes[i].name == dishName)
+            {
+                // Letzte 5 Elemente sind Legendary
+                if (i >= recipes.Count - 5)
+                {
+                    scoreToAdd = 50;
+                }
+                else
+                {
+                    scoreToAdd = 30;
+                }
+                break;
+            }
+        }
+
+        // Wenn das Gericht nicht in der Liste ist, füge 10 Punkte hinzu
+        if (scoreToAdd == 0)
+        {
+            scoreToAdd = 10;
+        }
+        
+        GlobalScore.playerScore += scoreToAdd;
+    }
 }
