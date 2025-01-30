@@ -88,10 +88,13 @@ public class RecipeManager : MonoBehaviour
                 if (i >= recipes.Count - 5)
                 {
                     scoreToAdd = 50;
+                    SoundManager.Instance.PlayLegendarySound();
                 }
                 else
                 {
                     scoreToAdd = 30;
+                     SoundManager.Instance.PlayRareSound();
+
                 }
                 break;
             }
@@ -101,6 +104,7 @@ public class RecipeManager : MonoBehaviour
         if (scoreToAdd == 0)
         {
             scoreToAdd = 10;
+             SoundManager.Instance.PlayNormalSound();
         }
         
         GlobalScore.playerScore += scoreToAdd;

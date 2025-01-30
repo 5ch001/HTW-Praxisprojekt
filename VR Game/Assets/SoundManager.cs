@@ -8,6 +8,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip destroyIngredient;
     [SerializeField] private AudioClip healSound;
+    [SerializeField] private AudioClip doorSound;
+    [SerializeField] private AudioClip cookingSound;
+    [SerializeField] private AudioClip rareSound;
+    [SerializeField] private AudioClip legendarySound;
+    [SerializeField] private AudioClip normalSound;
     [SerializeField] private AudioClip[] painSounds;
 
     // We'll let *another* script tell us which background music to play.
@@ -55,6 +60,31 @@ public class SoundManager : MonoBehaviour
     }
 
     public void PlayHealSound()
+    {
+        _sfxSource.PlayOneShot(healSound);
+    }
+
+    public void PlayDoorSound()
+    {
+        _sfxSource.PlayOneShot(healSound);
+    }
+
+    public void PlayCookingSound()
+    {
+        _sfxSource.PlayOneShot(healSound);
+    }
+
+    public void PlayRareSound()
+    {
+        _sfxSource.PlayOneShot(healSound);
+    }
+
+    public void PlayLegendarySound()
+    {
+        _sfxSource.PlayOneShot(healSound);
+    }
+
+    public void PlayNormalSound()
     {
         _sfxSource.PlayOneShot(healSound);
     }

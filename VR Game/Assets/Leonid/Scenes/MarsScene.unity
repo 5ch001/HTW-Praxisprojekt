@@ -9572,6 +9572,11 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 8680f996ab928504a98afd926e0c9eb5, type: 3}
   destroyIngredient: {fileID: 8300000, guid: 5501e17180f71fb4ea8113b5bc919de5, type: 3}
   healSound: {fileID: 8300000, guid: 4e9e590eb178c084e9aff958fca3f346, type: 3}
+  doorSound: {fileID: 8300000, guid: 39c4163150ebabb4ab6759e56bef6ca2, type: 3}
+  cookingSound: {fileID: 8300000, guid: cd78d8aa06ddb634ca05aeced3b16c0a, type: 3}
+  rareSound: {fileID: 8300000, guid: 30c391408d2aa0f48b859124ce5f1e4d, type: 3}
+  legendarySound: {fileID: 8300000, guid: 232731be574662e4489f1272cc9f350e, type: 3}
+  normalSound: {fileID: 8300000, guid: cc03cdeef7df3d84f925f4fc7c5d4534, type: 3}
   painSounds:
   - {fileID: 8300000, guid: 2bba43289bb4e524f91f050e52f079b9, type: 3}
   - {fileID: 8300000, guid: a1a0c051a30d11d4890300f12807c41d, type: 3}
@@ -37062,6 +37067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d264f8f2115ade241baf9ba74fe51d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnim: {fileID: 0}
 --- !u!114 &2028706381
 MonoBehaviour:
   m_ObjectHideFlags: 0
