@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
-    public float playerScore = 0f;
     public float scoreMultiplier = 2f; //arbitrary value
     private float timeElapsed = 0f;
     private float increaseInterval = 10f; //10 seconds
@@ -24,8 +23,8 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScore() {
 
-        playerScore += Time.deltaTime * scoreMultiplier;
-        scoreText.text = "Score: " + Mathf.FloorToInt(playerScore).ToString();
+        GlobalScore.playerScore += Time.deltaTime * scoreMultiplier;
+        scoreText.text = "Score: " + Mathf.FloorToInt(GlobalScore.playerScore).ToString();
     }
 
     private void IncreaseMultiplier() {
@@ -37,22 +36,22 @@ public class ScoreManager : MonoBehaviour
     }
 
     private void ResetScore() {
-        playerScore = 0f;
+        GlobalScore.playerScore = 0f;
         scoreMultiplier = 2f;
         timeElapsed = 0f;
     }
 
     public void AddScore(float score) { //Called when player destroys an object (in DestroyOnGrab.cs)
-        playerScore += score;
+        GlobalScore.playerScore += score;
         ShowScorePopup(score);
     }
 
     public float GetScore() {
-        return playerScore;
+        return GlobalScore.playerScore;
     }
 
     public void SetScore(float score) {
-        playerScore = score;
+        GlobalScore.playerScore = score;
     }
 
     private void ShowScorePopup(float score)
