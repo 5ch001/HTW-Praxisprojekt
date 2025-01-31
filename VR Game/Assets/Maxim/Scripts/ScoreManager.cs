@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     private float increaseInterval = 10f; //10 seconds
     public GameObject scorePopupPrefab;
 
-    private const string DefaultPlayerName = "PlayerHTW";
+    //private const string DefaultPlayerName = "PlayerHTW";
      public static ScoreManager Instance { get; private set; }
 
     private void Awake()
@@ -94,23 +94,36 @@ public class ScoreManager : MonoBehaviour
     private const string HighscoresKey = "Highscores"; // Key für die Highscores in PlayerPrefs
 
    public void SaveScore()
+{
+    List<HighscoreEntry> highscores = LoadHighscores();
+
+    // Retrieve last used player number
+    int lastPlayerNumber = PlayerPrefs.GetInt("LastPlayerNumber", 0);
+    lastPlayerNumber++;
+    
+    // Generate a unique name
+    string uniquePlayerName = $"Player-HTW{lastPlayerNumber}";
+
+    // Store the new number for next time
+    PlayerPrefs.SetInt("LastPlayerNumber", lastPlayerNumber);
+    PlayerPrefs.Save();
+
+    highscores.Add(new HighscoreEntry { playerName = uniquePlayerName, score = playerScore });
+
+    highscores.Sort((x, y) => y.score.CompareTo(x.score));
+
+    if (highscores.Count > 10)
     {
-        // Load current high scores
-        List<HighscoreEntry> highscores = LoadHighscores();
-
-        // Add the new score with the default player name
-        highscores.Add(new HighscoreEntry { playerName = DefaultPlayerName, score = playerScore });
-
-        // Sort high scores (highest score first)
-        highscores.Sort((x, y) => y.score.CompareTo(x.score));
-
-        // Save high scores
-        string json = JsonUtility.ToJson(new HighscoreList { entries = highscores });
-        PlayerPrefs.SetString(HighscoresKey, json);
-        PlayerPrefs.Save();
-
-        Debug.Log("Score saved: " + DefaultPlayerName + " - " + playerScore);
+        highscores = highscores.GetRange(0, 10);
     }
+
+    string json = JsonUtility.ToJson(new HighscoreList { entries = highscores });
+    PlayerPrefs.SetString(HighscoresKey, json);
+    PlayerPrefs.Save();
+
+    Debug.Log($"Score saved: {uniquePlayerName} - {playerScore}");
+}
+
 
     public void EndGameAndSave()
     {

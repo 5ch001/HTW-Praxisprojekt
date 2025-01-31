@@ -16,19 +16,20 @@ public class LeaderboardDisplay : MonoBehaviour
 
     public void DisplayLeaderboard()
     {
-        List<HighscoreEntry> highscores = LoadHighscores();
-        highscores.Sort((x, y) => y.score.CompareTo(x.score)); // Sort scores in descending order
+       List<HighscoreEntry> highscores = LoadHighscores();
+    highscores.Sort((x, y) => y.score.CompareTo(x.score));
 
-        // Format the leaderboard text
-        string leaderboardContent = "Leaderboard\n";
-        for (int i = 0; i < highscores.Count; i++)
-        {
-            HighscoreEntry entry = highscores[i];
-            leaderboardContent += $"{i + 1}. {entry.playerName} - {Mathf.FloorToInt(entry.score)}\n";
-        }
+    // Display only the top 10 players
+    int displayCount = Mathf.Min(10, highscores.Count);
+    string leaderboardContent = "Leaderboard\n";
 
-        // Update the Text UI element
-        leaderboardText.text = leaderboardContent;
+    for (int i = 0; i < displayCount; i++)
+    {
+        HighscoreEntry entry = highscores[i];
+        leaderboardContent += $"{i + 1}. {entry.playerName} - {Mathf.FloorToInt(entry.score)}\n";
+    }
+
+    leaderboardText.text = leaderboardContent;
     }
 
     private List<HighscoreEntry> LoadHighscores()
