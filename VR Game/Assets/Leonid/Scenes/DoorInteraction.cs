@@ -6,9 +6,11 @@ public class DoorInteraction : MonoBehaviour
 {
     public string sceneToLoad = "MarsScene"; // Set this to your correct scene name
     private bool isActivated = false;
+    SceneTransitionManager sceneTransitionManager;
 
     private void Start()
     {
+        sceneTransitionManager = FindObjectOfType<SceneTransitionManager>();
         Debug.Log("DoorInteraction script loaded.");
     }
 
@@ -20,6 +22,6 @@ public class DoorInteraction : MonoBehaviour
         Debug.Log("✅ Door clicked! Attempting to load scene: " + sceneToLoad);
 
         // Load Scene
-        SceneManager.LoadScene(sceneToLoad);
+        sceneTransitionManager.GoToScene(0); // Load in CookingScene
     }
 }
