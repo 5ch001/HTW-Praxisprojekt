@@ -14,6 +14,9 @@ public class RecipeManager : MonoBehaviour
     public List<Recipe> recipes = new List<Recipe>();
     public List<Sprite> dishSprites = new List<Sprite>(); // Liste der Gericht-Sprites
     public Sprite anythingElseSprite; // Der Standard-Sprite, der angezeigt wird, wenn kein passendes Rezept gefunden wird
+    public ParticleSystem normalPart;
+    public ParticleSystem rarePart;
+    public ParticleSystem legendaryPart;
 
     void Start()
     {
@@ -89,11 +92,13 @@ public class RecipeManager : MonoBehaviour
                 {
                     scoreToAdd = 50;
                     SoundManager.Instance.PlayLegendarySound();
+                    legendaryPart.Play();
                 }
                 else
                 {
                     scoreToAdd = 30;
-                     SoundManager.Instance.PlayRareSound();
+                    SoundManager.Instance.PlayRareSound();
+                    rarePart.Play();
 
                 }
                 break;
@@ -104,7 +109,8 @@ public class RecipeManager : MonoBehaviour
         if (scoreToAdd == 0)
         {
             scoreToAdd = 10;
-             SoundManager.Instance.PlayNormalSound();
+             SoundManager.Instance.PlayCookingSound();
+             normalPart.Play();
         }
         
         GlobalScore.playerScore += scoreToAdd;
