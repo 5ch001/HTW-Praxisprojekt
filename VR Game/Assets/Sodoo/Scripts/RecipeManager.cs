@@ -109,7 +109,7 @@ public class RecipeManager : MonoBehaviour
         if (scoreToAdd == 0)
         {
             scoreToAdd = 10;
-             SoundManager.Instance.PlayCookingSound();
+             SoundManager.Instance.PlayNormalSound();
              normalPart.Play();
         }
         

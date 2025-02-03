@@ -66,27 +66,27 @@ public class SoundManager : MonoBehaviour
 
     public void PlayDoorSound()
     {
-        _sfxSource.PlayOneShot(healSound);
+        _sfxSource.PlayOneShot(doorSound);
     }
 
     public void PlayCookingSound()
     {
-        _sfxSource.PlayOneShot(healSound);
+        _sfxSource.PlayOneShot(cookingSound);
     }
 
     public void PlayRareSound()
     {
-        _sfxSource.PlayOneShot(healSound);
+        _sfxSource.PlayOneShot(rareSound);
     }
 
     public void PlayLegendarySound()
     {
-        _sfxSource.PlayOneShot(healSound);
+        _sfxSource.PlayOneShot(legendarySound);
     }
 
     public void PlayNormalSound()
     {
-        _sfxSource.PlayOneShot(healSound);
+        _sfxSource.PlayOneShot(normalSound);
     }
 
     public void PlayPainSound()
