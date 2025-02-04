@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     private float increaseInterval = 10f; //10 seconds
     public GameObject scorePopupPrefab;
 
-    //private const string DefaultPlayerName = "PlayerHTW";
+    private bool playerNameInitialized = false;
      public static ScoreManager Instance { get; private set; }
 
     private void Awake()
@@ -31,6 +31,12 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        // Initialize a new player name if not already done for this session.
+        if (!playerNameInitialized)
+        {
+            InitializePlayerName();
+            playerNameInitialized = true;
+        }
         ResetScore();
     }
 
@@ -93,6 +99,30 @@ public class ScoreManager : MonoBehaviour
     }
     private const string HighscoresKey = "Highscores"; // Key für die Highscores in PlayerPrefs
 
+     public void InitializePlayerName()
+    {
+        // Retrieve the last used player number (default is 0 if not present)
+        int lastPlayerNumber = PlayerPrefs.GetInt("LastPlayerNumber", 0);
+        lastPlayerNumber++;
+        
+        // Generate a unique name (e.g., "Player-HTW8")
+        string uniquePlayerName = $"Player-HTW{lastPlayerNumber}";
+
+        // Save the new number and name for the current session
+        PlayerPrefs.SetInt("LastPlayerNumber", lastPlayerNumber);
+        PlayerPrefs.SetString("LastPlayerName", uniquePlayerName);
+        PlayerPrefs.Save();
+
+        // Update the Player Name UI immediately
+        PlayerNameDisplay nameDisplay = FindObjectOfType<PlayerNameDisplay>();
+        if (nameDisplay != null)
+        {
+            nameDisplay.UpdatePlayerName();
+        }
+
+        Debug.Log($"Initialized player name: {uniquePlayerName}");
+    }
+
    public void SaveScore()
 {
     List<HighscoreEntry> highscores = LoadHighscores();
@@ -101,12 +131,9 @@ public class ScoreManager : MonoBehaviour
     int lastPlayerNumber = PlayerPrefs.GetInt("LastPlayerNumber", 0);
     lastPlayerNumber++;
     
-    // Generate a unique name
-    string uniquePlayerName = $"Player-HTW{lastPlayerNumber}";
-
-    // Store the new number for next time
-    PlayerPrefs.SetInt("LastPlayerNumber", lastPlayerNumber);
-    PlayerPrefs.Save();
+ // Use the current player's name stored in PlayerPrefs.
+        string uniquePlayerName = PlayerPrefs.GetString("LastPlayerName", "Player-HTW0");
+        
 
     highscores.Add(new HighscoreEntry { playerName = uniquePlayerName, score = playerScore });
 
@@ -122,6 +149,12 @@ public class ScoreManager : MonoBehaviour
     PlayerPrefs.Save();
 
     Debug.Log($"Score saved: {uniquePlayerName} - {playerScore}");
+     PlayerNameDisplay nameDisplay = FindObjectOfType<PlayerNameDisplay>();
+    if (nameDisplay != null)
+    {
+        nameDisplay.UpdatePlayerName();
+    }
+
 }
 
 
