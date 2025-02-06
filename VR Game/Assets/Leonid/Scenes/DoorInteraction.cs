@@ -23,5 +23,6 @@ public class DoorInteraction : MonoBehaviour
 
         // Load Scene
         sceneTransitionManager.GoToScene(0); // Load in CookingScene
+        SoundManager.Instance.PlayDoorSound();
     }
 }
