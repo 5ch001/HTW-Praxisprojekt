@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 6651660402992700327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.487866, y: 0, z: -24.208586}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10.488, y: 0.0000028776, z: -24.209}
+  m_LocalScale: {x: 1.0354, y: 1.0354, z: 1.0354}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -285,3 +285,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionEffectPrefab: {fileID: 1173937985863283591, guid: ce2adae3f58f4184d9b5592fb40dd4f8, type: 3}
+  scoreManager: {fileID: 0}
+  playerController: {fileID: 0}

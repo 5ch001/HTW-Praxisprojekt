@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.85
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 430175b450b9d7a4a8d0987e50a9a703, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -20161,8 +20161,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2125121594257248479, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_HDR
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125121594257248479, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125121594257248479, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: far clip plane
-      value: 50000
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2289058060689522534, guid: 03ec156e707b1f4479681fd2b32b5713, type: 3}
       propertyPath: m_IsActive
