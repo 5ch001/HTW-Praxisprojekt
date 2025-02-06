@@ -8,12 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Image healthBar; // Reference to the UI health bar
-    public Image pressBar; // Reference to the UI press bar
     private float healthAmount = 100f; // Player's current health
     private bool isDead = false; // Tracks if the player has lost all lives
-    private bool loadKitchen = false; // Tracks if the kitchen scene should be loaded
-    private float buttonHoldTime = 0f; // Tracks how long the button is held down
-    private float requiredHoldTime = 3f; // Time required to trigger the action
     private float destructionRadius = 10f; // Radius within which asteroids will be destroyed
     private ButtonParticleController particleController;
     SceneTransitionManager sceneTransitionManager;
@@ -30,19 +26,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         particleController = FindFirstObjectByType<ButtonParticleController>(); // Suche den Partikel-Controller in der Szene
-        sceneTransitionManager = FindObjectOfType<SceneTransitionManager>();
+        sceneTransitionManager = FindFirstObjectByType<SceneTransitionManager>();
         particleController.StopParticleSystem();
         healthAmount = 100f; // Initialize health to max
         UpdateSegmentedHealthBar();
         ResetHealthBar();
-        ResetPressBar(); // Initialize PressBar to empty
     }
 
     void Update()
     {
-        LoadKitchenScene();
-
-        // Optional debug output
         if (isDead)
         {
             GameManager.ResetCollectedIngredients();
@@ -151,16 +143,6 @@ public class PlayerController : MonoBehaviour
         healthBar.fillAmount = 1f; // Set health bar to full
     }
 
-    private void ResetPressBar()
-    {
-        pressBar.fillAmount = 0f; // Reset press bar to empty
-    }
-
-    private void UpdatePressBar()
-    {
-        pressBar.fillAmount = buttonHoldTime / requiredHoldTime; // Fill the press bar proportionally
-    }
-
     private void DestroyNearbyAsteroids(Vector3 position)
     {
         Collider[] hitColliders = Physics.OverlapSphere(position, destructionRadius);
@@ -170,45 +152,6 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(hitCollider.gameObject);
                 Debug.Log("Destroyed nearby asteroid!");
-            }
-        }
-    }
-
-    private void LoadKitchenScene()
-    {
-        InputDevice controller = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-
-        if (controller.isValid)
-        {
-            bool isButtonPressed;
-
-            // Prüfe, ob der primäre Knopf gedrückt wird
-            if (controller.TryGetFeatureValue(CommonUsages.primaryButton, out isButtonPressed) && isButtonPressed)
-            {
-                buttonHoldTime += Time.deltaTime; // Erhöhe die Haltezeit
-                UpdatePressBar(); // Aktualisiere die Press-Bar-Füllung
-
-                if (particleController != null)
-                {
-                    particleController.UpdateParticleSystem(buttonHoldTime); // Aktualisiere das Partikel-System
-                }
-
-                if (buttonHoldTime >= requiredHoldTime && !loadKitchen)
-                {
-                    loadKitchen = true;
-                    Debug.Log("lade Kochszene");
-                    sceneTransitionManager.GoToScene(2); // Load in CookingScene
-                }
-            }
-            else
-            {
-                buttonHoldTime = 0f; // Setze den Timer zurück
-                ResetPressBar(); // Setze die Press-Bar zurück
-
-                if (particleController != null)
-                {
-                    particleController.StopParticleSystem(); // Stoppe das Partikel-System
-                }
             }
         }
     }
