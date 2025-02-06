@@ -22,6 +22,7 @@ public class DoorInteraction : MonoBehaviour
         Debug.Log("✅ Door clicked! Attempting to load scene: " + sceneToLoad);
 
         // Load Scene
+        GameManager.ResetCollectedIngredients();
         sceneTransitionManager.GoToScene(0); // Load in CookingScene
         SoundManager.Instance.PlayDoorSound();
     }
